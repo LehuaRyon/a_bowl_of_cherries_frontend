@@ -4,9 +4,25 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import {createStore, compose, applyMiddleware} from 'redux'
+// set up store, add thunk, add chrome dev tools
+import {reducer} from './redux/reducer'
+// got to build this
+import {Provider} from 'react-redux'
+// get redux
+import thunk from 'redux-thunk'
+// get ability to make async actions for redux
+
+const store = createStore(reducer, compose(
+  applyMiddleware(thunk),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+))
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
