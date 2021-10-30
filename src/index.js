@@ -12,6 +12,8 @@ import {Provider} from 'react-redux'
 // get redux
 import thunk from 'redux-thunk'
 // get ability to make async actions for redux
+import {BrowserRouter as Router} from 'react-router-dom'
+// gives me router
 
 const store = createStore(reducer, compose(
   applyMiddleware(thunk),
@@ -20,9 +22,11 @@ const store = createStore(reducer, compose(
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider>
-      <App />
-    </Provider>
+    <Router>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
