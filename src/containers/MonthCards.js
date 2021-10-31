@@ -1,6 +1,6 @@
 import React from "react";
 
-const EventCards = (props) => {
+const MonthCards = (props) => {
 
 
     return(
@@ -10,4 +10,4 @@ const EventCards = (props) => {
     )
 }
 
-export default EventCards
+export default MonthCards

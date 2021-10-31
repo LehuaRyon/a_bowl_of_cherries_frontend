@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import './App.css';
-import EventCards from './containers/EventCards'
+import MonthCards from './containers/MonthCards'
 import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
+// import {star} from './redux/actions/actionCreators'
 class App extends Component {
 
   componentDidMount() {
@@ -23,11 +24,21 @@ class App extends Component {
           <hr />
         </header>
         <EventList />
-        <EventCards />
+        <MonthCards />
       </>
     );
   }
 }
 
+// const mapDispatchToProps = (dispatch) => {
+  // star: dispatch({type: "ADD_STAR"}) 
+// }
+
+// const mapDispatchToProps = (dispatch) => {
+  // star: dispatch(star) 
+// }
+
 export default connect(null, )(App);
+
+// export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import {createStore, compose, applyMiddleware} from 'redux'
 // set up store, add thunk, add chrome dev tools
-import {reducer} from './redux/reducer'
+import {reducer} from './redux/reducers/reducer'
 // got to build this
 import {Provider} from 'react-redux'
 // get redux
