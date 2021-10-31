@@ -1,8 +1,9 @@
 import './App.css';
+import EventCards from './containers/EventCards'
 
 function App() {
   return (
-    <div className="App">
+    <>
       <header className="App-header">
         <h1>A Bowl Of Cherries</h1>
         <hr />
@@ -11,7 +12,8 @@ function App() {
           <li>Month</li>
         </ul>
       </header>
-    </div>
+      <EventCards />
+    </>
   );
 }
 

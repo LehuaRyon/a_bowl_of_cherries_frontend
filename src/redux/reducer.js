@@ -5,4 +5,4 @@ export const reducer = combineReducers({
     events: eventsReducer,
     // user: userReducer
 })
-// combineReducers combine multipule reducers, parts of state kept separate based on keys
+// combineReducers combine multiple reducers, parts of state kept separate based on keys
