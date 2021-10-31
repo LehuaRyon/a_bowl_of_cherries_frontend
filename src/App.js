@@ -1,5 +1,6 @@
 import './App.css';
 import EventCards from './containers/EventCards'
+import EventList from './components/EventList'
 
 function App() {
   return (
