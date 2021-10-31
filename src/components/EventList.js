@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 // gives lifecycle abilitities
+import EventForm from "./EventForm";
 
 const api_url = 'http://localhost:3000/api/v1/events'
 
@@ -16,6 +17,7 @@ class EventList extends Component {
     render() {
         return (
             <div>
+                <EventForm />
                 <ul>
                     <li>Event #1</li>
                     <li>Event #2</li>
@@ -24,3 +26,5 @@ class EventList extends Component {
         )
     }
 }
+
+export default EventList
