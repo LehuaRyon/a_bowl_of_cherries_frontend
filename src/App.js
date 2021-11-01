@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './App.css';
 import MonthsList from './containers/MonthsList'
+import MonthsEvents from './components/MonthsEvents';
 import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
@@ -27,8 +28,8 @@ class App extends Component {
           <hr />
         </header>
         <Switch>
+          <Route path="/months/:id" component={MonthsEvents}/>
           <Route path="/months" component={MonthsList}/>
-          {/* <Route path="/months/:id" component={MonthCards}/> */}
         </Switch>
         {/* <EventList /> */}
       </>
