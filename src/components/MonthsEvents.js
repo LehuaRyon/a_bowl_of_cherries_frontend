@@ -15,7 +15,7 @@ class MonthsEvents extends Component {
     render() {
         // console.log(this.props)
         const eventsArray = this.props.events
-        console.log(eventsArray)
+        // console.log(eventsArray)
         return (
             // <div>
             //     <h1>{this.props.name} Events</h1>
@@ -27,7 +27,7 @@ class MonthsEvents extends Component {
 
             <>
                 <h1>{this.props.name} Events</h1>
-                <button onClick={this.props.goBack}>Go Back</button>
+                <button onClick={this.props.history.goBack}>Go Back</button>
                 {/* can also just reroute to months again */}
                 {eventsArray.map(({id, name, date, location, description}) => 
                 <div className="show" key={id}>
