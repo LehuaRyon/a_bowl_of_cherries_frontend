@@ -5,6 +5,8 @@ import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/actionCreators'
+import {Switch, Route} from 'react-router-dom'
+// allows to make components appear based on what route i go to
 class App extends Component {
 
   componentDidMount() {
@@ -24,8 +26,10 @@ class App extends Component {
           <Typography variant="h1">Month List</Typography>
           <hr />
         </header>
-        <EventList />
-        <MonthCards />
+        <Switch>
+          <Route path="/months" component={MonthCards}/>
+        </Switch>
+        {/* <EventList /> */}
       </>
     );
   }

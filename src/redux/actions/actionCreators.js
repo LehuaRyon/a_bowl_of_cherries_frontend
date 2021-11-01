@@ -12,7 +12,9 @@ export const setMonths = () => {
         .then(res => res.json())
         .then(months => dispatch({
         type: "SET_MONTHS",
+        // use the SET_MONTHS case in monthsReducer
         payload: months
+        // passing in our data, months, under key payload
         // payload is an array here, can also just be object
     }))
     }
