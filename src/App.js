@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import './App.css';
-import MonthCards from './containers/MonthCards'
+import MonthsList from './containers/MonthsList'
 import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
@@ -23,11 +23,12 @@ class App extends Component {
     return (
       <>
         <header className="App-header">
-          <Typography variant="h1">Month List</Typography>
+          <Typography variant="h1">A Bowl Of Cherries</Typography>
           <hr />
         </header>
         <Switch>
-          <Route path="/months" component={MonthCards}/>
+          <Route path="/months" component={MonthsList}/>
+          {/* <Route path="/months/:id" component={MonthCards}/> */}
         </Switch>
         {/* <EventList /> */}
       </>

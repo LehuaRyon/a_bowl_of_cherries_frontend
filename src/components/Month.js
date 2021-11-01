@@ -1,6 +1,6 @@
 import React from "react";
 
-const MonthCard = (props) => {
+const Month = (props) => {
     const {name} = props
     // destructure
     return(
@@ -10,4 +10,4 @@ const MonthCard = (props) => {
     )
 }
 
-export default MonthCard
+export default Month
