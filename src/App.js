@@ -31,14 +31,18 @@ class App extends Component {
 }
 
 // const mapDispatchToProps = (dispatch) => {
-  // star: dispatch({type: "ADD_STAR"}) 
+  // star: () => dispatch({type: "ADD_STAR"}) 
 // }
 
 // const mapDispatchToProps = (dispatch) => {
-  // star: dispatch(star) 
+  // star: () => dispatch(star) 
 // }
 
 export default connect(null, )(App);
 
 // export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null
+
+// export default connect(null, {star})(App);
+// not easy to use if i do async action then wanna dispatch
+// fetching is outside of scope of dispatch method
