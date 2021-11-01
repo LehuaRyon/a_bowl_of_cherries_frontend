@@ -27,6 +27,8 @@ class MonthsEvents extends Component {
 
             <>
                 <h1>{this.props.name} Events</h1>
+                <button onClick={this.props.goBack}>Go Back</button>
+                {/* can also just reroute to months again */}
                 {eventsArray.map(({id, name, date, location, description}) => 
                 <div className="show" key={id}>
                     <h2>{name}</h2> 
@@ -36,15 +38,16 @@ class MonthsEvents extends Component {
                     <br></br>
                     <br></br>
                 </div>)}
-                {/* the above line of code works when first typed in but not refreshed? */}
             </>
+            // the above line of code works when first typed in but not refreshed?
         )
 
         // return (
             // <h1>Month's Events go here</h1>
         //     <div className="show">
-        //         {/* <a href={url}>{name}</a> */}
+        //         {/* <h1><a href={url}>{name}</a></h1> */}
         //         {/* link to events page through url */}
+        //          <p><img src={imageUrl} alt={name}/></p>
         //     </div>
         // )
     }
