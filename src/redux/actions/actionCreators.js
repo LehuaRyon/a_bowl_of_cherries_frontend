@@ -11,9 +11,9 @@ export const setMonths = () => {
         fetch(api_url)
         .then(res => res.json())
         .then(months => dispatch({
-        type: "SET_MONTHS",
-        // use the SET_MONTHS case in monthsReducer
-        payload: months
+            type: "SET_MONTHS",
+            // use the SET_MONTHS case in monthsReducer
+            payload: months
         // passing in our data, months, under key payload
         // payload is an array here, can also just be object
     }))
@@ -40,3 +40,18 @@ export const setMonths = () => {
 // componentDidMount() {
 //     this.props.setMonths()
 //   }
+
+export const setSelectedMonth = (id) => {
+    return dispatch => {
+        fetch(`${api_url}/${id}`)
+        .then(res => res.json())
+        .then(month => dispatch({
+            type: "SET_SELECTED_MONTH",
+            payload: month
+        // returning a function that only takes in 1 argument of dispatch,
+        // but creating it with a function that takes in id as argument
+        // creating a function by passing in id
+        // bc of thunk, it knows to pass dispatch into the method
+    }))
+    }
+}
