@@ -13,10 +13,31 @@ class MonthsEvents extends Component {
     }
 
     render() {
+        // console.log(this.props)
+        const eventsArray = this.props.events
+        console.log(eventsArray)
         return (
-            <h1>Month's Events go here</h1>
+            <div>
+                <h1>{this.props.name} Events</h1>
+                <ul> 
+                    {eventsArray.map(({id, name, date, location, description}) => <li key={id}>Name: {name}, Date: {date}, Location: {location}, Description: {description}</li>)}
+                    {/* the above line of code works when first typed in but not refreshed? */}
+                </ul>
+            </div>
         )
+
+        // return (
+            // <h1>Month's Events go here</h1>
+        //     <div className="show">
+        //         {/* <a href={url}>{name}</a> */}
+        //         {/* link to events page through url */}
+        //     </div>
+        // )
     }
 }
 
-export default connect(null, {setSelectedMonth})(MonthsEvents)
+const mapStateToProps = (state) => ({
+    ...state.months.selectedMonth
+})
+
+export default connect(mapStateToProps, {setSelectedMonth})(MonthsEvents)
