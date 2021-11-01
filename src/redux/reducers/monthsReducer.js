@@ -4,6 +4,8 @@ const initialMonthState = {
 
 const monthsReducer = (state=initialMonthState, action) => {
     switch(action.type){
+        case "SET_MONTHS":
+            return {...state, months: action.payload}
         default: 
             return {...state}
     }
