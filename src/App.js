@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <>
         <header className="App-header">
-          <Typography variant="h1">Event List</Typography>
+          <Typography variant="h1">Month List</Typography>
           <hr />
         </header>
         <EventList />
