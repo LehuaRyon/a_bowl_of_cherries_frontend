@@ -4,11 +4,12 @@ import MonthCards from './containers/MonthCards'
 import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
-// import {star} from './redux/actions/actionCreators'
+import {setMonths} from './redux/actions/actionCreators'
 class App extends Component {
 
   componentDidMount() {
-    console.log("Going to fetch months next")
+    // console.log("Going to fetch months next")
+    this.props.setMonths()
   }
   // will run when App is rendered
 
@@ -38,7 +39,7 @@ class App extends Component {
   // star: () => dispatch(star) 
 // }
 
-export default connect(null, )(App);
+export default connect(null, {setMonths})(App);
 
 // export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null
