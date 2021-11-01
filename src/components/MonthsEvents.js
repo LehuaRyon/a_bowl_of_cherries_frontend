@@ -17,13 +17,27 @@ class MonthsEvents extends Component {
         const eventsArray = this.props.events
         console.log(eventsArray)
         return (
-            <div>
+            // <div>
+            //     <h1>{this.props.name} Events</h1>
+            //     <ul> 
+            //         {eventsArray.map(({id, name, date, location, description}) => <li key={id}>Date: {date}, Name: {name}  Location: {location}, Description: {description}</li>)}
+            //         {/* the above line of code works when first typed in but not refreshed? */}
+            //     </ul>
+            // </div>
+
+            <>
                 <h1>{this.props.name} Events</h1>
-                <ul> 
-                    {eventsArray.map(({id, name, date, location, description}) => <li key={id}>Name: {name}, Date: {date}, Location: {location}, Description: {description}</li>)}
-                    {/* the above line of code works when first typed in but not refreshed? */}
-                </ul>
-            </div>
+                {eventsArray.map(({id, name, date, location, description}) => 
+                <div className="show" key={id}>
+                    <h2>{name}</h2> 
+                    <p>Date: {date}</p>  
+                    <p>Location: {location}</p>
+                    <p>Description: {description}</p>
+                    <br></br>
+                    <br></br>
+                </div>)}
+                {/* the above line of code works when first typed in but not refreshed? */}
+            </>
         )
 
         // return (
