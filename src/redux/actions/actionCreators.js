@@ -43,7 +43,8 @@ export const setMonths = () => {
 
 export const setSelectedMonth = (id) => {
     return dispatch => {
-        fetch(`${api_url}/${id}`)
+        fetch(api_url + "/" + id)
+        // fetch(`${api_url}/${id}`)
         .then(res => res.json())
         .then(month => dispatch({
             type: "SET_SELECTED_MONTH",

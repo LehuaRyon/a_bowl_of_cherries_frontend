@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from "react-redux"
 // making class component with lifecycle methods
+import {setSelectedMonth} from '../redux/actions/actionCreators'
 
 class MonthsEvents extends Component {
 
@@ -8,7 +9,7 @@ class MonthsEvents extends Component {
         // console.log(this.props)
         const id = this.props.match.params.id
         // getting the id from the route, match.params are props given to me by router
-        
+        this.props.setSelectedMonth(id)
     }
 
     render() {
@@ -18,4 +19,4 @@ class MonthsEvents extends Component {
     }
 }
 
-export default connect()(MonthsEvents)
+export default connect(null, {setSelectedMonth})(MonthsEvents)
