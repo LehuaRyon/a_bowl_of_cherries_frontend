@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import {setSelectedMonth, unsetSelectedMonth} from '../redux/actions/monthActionCreators'
 // import {setSelectedMonth} from '../redux/actions/monthActionCreators'
 
-class MonthsEvents extends Component {
+class MonthSelected extends Component {
 
     componentDidMount() {
         // debugger
@@ -64,5 +64,5 @@ const mapStateToProps = (state) => ({
     ...state.months.selectedMonth
 })
 
-export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthsEvents)
-// export default connect(mapStateToProps, {setSelectedMonth})(MonthsEvents)
+export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthSelected)
+// export default connect(mapStateToProps, {setSelectedMonth})(MonthSelected)

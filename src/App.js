@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './App.css';
 import MonthsList from './containers/MonthsList'
-import MonthsEvents from './components/MonthsEvents';
+import MonthSelected from './components/MonthSelected';
 import Login from './components/Login';
 // import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
@@ -34,7 +34,7 @@ class App extends Component {
         {this.props.user.id
         ?
           <Switch>
-            <Route path="/months/:id" component={MonthsEvents}/>
+            <Route path="/months/:id" component={MonthSelected}/>
             <Route path="/months" component={MonthsList}/>
           </Switch>
         :
