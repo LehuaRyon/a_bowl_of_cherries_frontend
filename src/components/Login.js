@@ -37,6 +37,7 @@ const Login = (props) => {
 }
 // if signup is true, sign up, if not, login shows instead
 // password confirmation only shows on if on signup
+// going to see login page no matter what route 
 
 const mapStateToProps = (state) => ({signup: state.user.signup})
 

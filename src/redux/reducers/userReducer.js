@@ -1,9 +1,15 @@
-
+const initialLoginForm = {
+    username: "",
+    password: "",
+    passwordConfirmation: ""
+} 
+// use to clear redux store when finished logging in
 
 const initialUserState = {
     id: null,
     username: null,
-    signup: false
+    signup: false,
+    loginForm: initialLoginForm
 }
 
 const userReducer = (state=initialUserState, action) => {
