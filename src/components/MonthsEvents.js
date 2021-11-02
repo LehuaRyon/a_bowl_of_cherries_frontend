@@ -7,6 +7,7 @@ import {setSelectedMonth} from '../redux/actions/monthActionCreators'
 class MonthsEvents extends Component {
 
     componentDidMount() {
+        // debugger
         // console.log(this.props)
         const id = this.props.match.params.id
         // getting the id from the route, match.params are props given to me by router

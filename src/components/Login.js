@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {toggleSignup} from '../redux/actions/userActionCreator'
+import {toggleSignup, handleLoginFormChange} from '../redux/actions/userActionCreator'
 
 const Login = (props) => {
     // console.log(props)
-    const {signup, toggleSignup, form} = props
+    const {signup, toggleSignup, form, handleLoginFormChange} = props
     // grab form from props and set equal to variable form
     const {username, password, passwordConfirmation} = form
     // destructure the form too so i have access
@@ -14,19 +14,19 @@ const Login = (props) => {
         <form>
             <label>
                 Username:
-                <input type="text" name="username" value={username}/>
+                <input type="text" name="username" value={username} onChange={handleLoginFormChange}/>
             </label>
             <br></br>
             <label>
                 Password:
-                <input type="password" name="password" value={password}/>
+                <input type="password" name="password" value={password} onChange={handleLoginFormChange}/>
             </label>
             <br></br>
             {signup &&
                 <>
                     <label>
                         Password Confirmation:
-                        <input type="password" name="passwordConfirmation" value={passwordConfirmation}/>
+                        <input type="password" name="passwordConfirmation" value={passwordConfirmation} onChange={handleLoginFormChange}/>
                     </label>
                     <br></br>
                         <input type="submit" value="Submit" />
@@ -47,4 +47,9 @@ const mapStateToProps = (state) => ({
     form: state.user.loginForm
 })
 
-export default connect(mapStateToProps, {toggleSignup})(Login)
+export default connect(mapStateToProps, {toggleSignup, handleLoginFormChange})(Login)
+
+// controlled form in redux
+// keep on object that represents form in state
+// use value of each individual input to tell it how it should look like
+//  create a change handler fo reach individual one, will update state with new information in it

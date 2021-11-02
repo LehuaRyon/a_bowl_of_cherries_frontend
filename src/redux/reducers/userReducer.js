@@ -16,6 +16,14 @@ const userReducer = (state=initialUserState, action) => {
     switch(action.type){
         case "TOGGLE_SIGNUP":
             return {...state, signup: !state.signup}
+        case "LOGIN_FORM_CHANGE":
+            return {...state, loginForm: {
+                ...state.loginForm,
+                [action.payload.name]: action.payload.value
+            }}
+            // grab name and value from action payload
+                // setting it equal to new value in form
+            // if it is username, update username key with new value
         default: 
             return {...state}
     }
