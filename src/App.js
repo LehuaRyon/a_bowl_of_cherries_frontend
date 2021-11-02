@@ -21,21 +21,29 @@ class App extends Component {
   // }
 
   render() {
+    // console.log(this.props)
     return (
       <>
         <header className="App-header">
           <Typography variant="h1">A Bowl Of Cherries</Typography>
           <hr />
         </header>
-        <Switch>
-          <Route path="/months/:id" component={MonthsEvents}/>
-          <Route path="/months" component={MonthsList}/>
-        </Switch>
-        {/* <EventList /> */}
+        {this.props.user.id
+        ?
+          <Switch>
+            <Route path="/months/:id" component={MonthsEvents}/>
+            <Route path="/months" component={MonthsList}/>
+          </Switch>
+        :
+          <Login />
+        }
       </>
     );
   }
 }
+
+{/* <EventList /> */}
+{/* if there is a user id, render all paths, if not, render login */}
 
 // const mapDispatchToProps = (dispatch) => {
   // star: () => dispatch({type: "ADD_STAR"}) 
@@ -45,7 +53,9 @@ class App extends Component {
   // star: () => dispatch(star) 
 // }
 
-export default connect(null, {setMonths})(App);
+const mapStateToProps = (state) => ({user: state.user})
+
+export default connect(mapStateToProps, {setMonths})(App);
 
 // export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null
