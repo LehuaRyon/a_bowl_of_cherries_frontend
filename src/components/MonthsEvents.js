@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import { connect } from "react-redux"
 // making class component with lifecycle methods
-// import {setSelectedMonth, unsetSelectedMonth} from '../redux/actions/actionCreators'
-import {setSelectedMonth} from '../redux/actions/monthActionCreators'
+import {setSelectedMonth, unsetSelectedMonth} from '../redux/actions/monthActionCreators'
+// import {setSelectedMonth} from '../redux/actions/monthActionCreators'
 
 class MonthsEvents extends Component {
 
@@ -14,9 +14,9 @@ class MonthsEvents extends Component {
         this.props.setSelectedMonth(id)
     }
 
-    // componentWillUnmount() {
-    //     this.props.unsetSelectedMonth()
-    // }
+    componentWillUnmount() {
+        this.props.unsetSelectedMonth()
+    }
 
     render() {
         // console.log(this.props)
@@ -64,5 +64,5 @@ const mapStateToProps = (state) => ({
     ...state.months.selectedMonth
 })
 
-// export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthsEvents)
-export default connect(mapStateToProps, {setSelectedMonth})(MonthsEvents)
+export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthsEvents)
+// export default connect(mapStateToProps, {setSelectedMonth})(MonthsEvents)

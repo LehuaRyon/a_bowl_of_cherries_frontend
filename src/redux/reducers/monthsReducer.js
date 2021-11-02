@@ -26,8 +26,8 @@ const monthsReducer = (state=initialMonthState, action) => {
         case "SET_SELECTED_MONTH":
             // console.log(action.payload)
             return {...state, selectedMonth: action.payload}
-        // case "UNSET_SELECTED_MONTH":
-        //     return {...state, selectedMonth: nullMonth}
+        case "UNSET_SELECTED_MONTH":
+            return {...state, selectedMonth: nullMonth}
         default: 
             return {...state}
     }

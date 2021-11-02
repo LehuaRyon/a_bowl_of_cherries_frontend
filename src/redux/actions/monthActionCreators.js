@@ -57,5 +57,5 @@ export const setSelectedMonth = (id) => {
     }
 }
 
-// just regular object, no need thunk
-// export const unsetSelectedMonth = () => ({type: "UNSET_SELECTED_MONTH"})
+// just regular object, no need thun
+export const unsetSelectedMonth = () => ({type: "UNSET_SELECTED_MONTH"})
