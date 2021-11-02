@@ -24,6 +24,9 @@ const userReducer = (state=initialUserState, action) => {
             // grab name and value from action payload
                 // setting it equal to new value in form
             // if it is username, update username key with new value
+        case "SET_USER":
+            return {...state, ...action.payload.user}
+            // give me user name and id & overwrite it in initialUserState
         default: 
             return {...state}
     }

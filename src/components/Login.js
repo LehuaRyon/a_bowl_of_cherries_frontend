@@ -40,10 +40,10 @@ const Login = (props) => {
                         Password Confirmation:
                         <input type="password" name="passwordConfirmation" value={passwordConfirmation} onChange={handleLoginFormChange}/>
                     </label>
-                    <br></br>
-                        <input type="submit" value="Submit" />
                 </>
             }
+            <br></br>
+            <input type="submit" value="Submit" />
         </form>
         <br></br>
         <button onClick={toggleSignup}>Or {signup ? "Login" : "Sign Up"}</button>
