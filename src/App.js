@@ -7,11 +7,13 @@ import Login from './components/Login';
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/monthActionCreators'
+import {autoLogin} from './redux/actions/userActionCreators'
 import {Switch, Route} from 'react-router-dom'
 // allows to make components appear based on what route i go to
 class App extends Component {
 
   componentDidMount() {
+    localStorage.token && this.props.autoLogin()
     // console.log("Going to fetch months next")
     this.props.setMonths()
   }
@@ -56,7 +58,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps, {setMonths})(App);
+export default connect(mapStateToProps, {setMonths, autoLogin})(App);
 
 // export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null
