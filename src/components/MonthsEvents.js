@@ -35,12 +35,13 @@ class MonthsEvents extends Component {
                 <h1>{this.props.name} Events</h1>
                 <button onClick={this.props.history.goBack}>Go Back</button>
                 {/* can also just reroute to months again */}
-                {eventsArray.map(({id, name, date, location, description}) => 
+                {eventsArray.map(({id, name, date, location, description, username}) => 
                 <div className="show" key={id}>
                     <h2>{name}</h2> 
                     <p>Date: {date}</p>  
                     <p>Location: {location}</p>
                     <p>Description: {description}</p>
+                    <p>Added By: {username}</p>
                     <br></br>
                     <br></br>
                 </div>)}

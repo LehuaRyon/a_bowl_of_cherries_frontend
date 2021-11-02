@@ -1,7 +1,8 @@
 const nullMonth = {
     id: null,
     name: "", 
-    events: ""
+    events: []
+    // events: ""
 }
 // before fetch completes and componentdidmount runs, render is already ran
 // render runs before anything else, then componentdidmount, then fetch resolves and then state gets updated
@@ -13,7 +14,7 @@ const initialMonthState = {
     // selectedMonth: {
     //     id: null,
     //     name: "", 
-    //     events: ""
+    //     events: []
     // }
 }
 
