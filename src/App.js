@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import './App.css';
 import MonthsList from './containers/MonthsList'
 import MonthsEvents from './components/MonthsEvents';
+import Login from './components/Login';
 // import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'

@@ -2,7 +2,8 @@
 
 const initialUserState = {
     id: null,
-    username: null
+    username: null,
+    signup: false
 }
 
 const userReducer = (state=initialUserState, action) => {
