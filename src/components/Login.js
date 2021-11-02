@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {toggleSignup, handleLoginFormChange, sendSignup} from '../redux/actions/userActionCreator'
+import {toggleSignup, handleLoginFormChange, sendSignup, sendLogin} from '../redux/actions/userActionCreator'
 
 const Login = (props) => {
     // console.log(props)
-    const {signup, toggleSignup, form, handleLoginFormChange, sendSignup} = props
+    const {signup, toggleSignup, form, handleLoginFormChange, sendSignup, sendLogin} = props
     // grab form from props and set equal to variable form
     const {username, password, passwordConfirmation} = form
     // destructure the form too so i have access
@@ -16,6 +16,8 @@ const Login = (props) => {
             } else {
                 alert("Passwords do not match!")
             }
+        } else {
+            sendLogin({username: username, password: password})
         }
         // else statement saying, if loggining in instead, run something else
     }
@@ -59,7 +61,7 @@ const mapStateToProps = (state) => ({
     form: state.user.loginForm
 })
 
-export default connect(mapStateToProps, {toggleSignup, handleLoginFormChange, sendSignup})(Login)
+export default connect(mapStateToProps, {toggleSignup, handleLoginFormChange, sendSignup, sendLogin})(Login)
 
 // controlled form in redux
 // keep on object that represents form in state
