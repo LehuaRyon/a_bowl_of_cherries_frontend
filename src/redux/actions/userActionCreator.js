@@ -23,11 +23,14 @@ export const sendSignup = (userData) => {
             body: JSON.stringify(userData),
         })
         .then(resp => resp.json())
-        .then(resp => dispatch({
+        .then(resp => {
+            localStorage.token = resp.token
+            dispatch({
             type: "SET_USER",
             payload: {user: resp.user}
             // payload: resp.user
-        }))
+        })
+    })
     }
 }
 // don't want to just send back user data, making it nested
@@ -43,10 +46,13 @@ export const sendLogin = (userData) => {
             body: JSON.stringify(userData),
         })
         .then(resp => resp.json())
-        .then(resp => dispatch({
+        .then(resp => {
+            localStorage.token = resp.token
+            dispatch({
             type: "SET_USER",
             payload: {user: resp.user}
             // payload: resp.user
-        }))
+        })
+    })
     }
 }
