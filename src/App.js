@@ -6,7 +6,7 @@ import Login from './components/Login';
 // import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
-import {setMonths} from './redux/actions/actionCreators'
+import {setMonths} from './redux/actions/monthActionCreators'
 import {Switch, Route} from 'react-router-dom'
 // allows to make components appear based on what route i go to
 class App extends Component {
