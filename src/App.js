@@ -3,7 +3,6 @@ import './App.css';
 import MonthsList from './containers/MonthsList'
 import MonthSelected from './containers/MonthSelected';
 import Login from './components/Login';
-// import EventList from './components/EventList'
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/monthActionCreators'
