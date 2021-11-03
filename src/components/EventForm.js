@@ -2,35 +2,34 @@
 // gives lifecycle abilitities
 import React from 'react'
 import { connect } from 'react-redux'
-import {} from '../redux/actions/userActionCreators'
+import {handleEventFormChange} from '../redux/actions/monthActionCreators'
 
 const EventForm = (props) => {
     
     const onSubmit = (e) => {
         e.preventDefault()
-  
     }
 
     return (
         <form onSubmit={onSubmit}>
             <label>
                 Name:
-                <input type="text" name="name" value={name} onChange={() => "fill"}/>
+                <input type="text" name="name" value={name} onChange={props.handleEventFormChange}/>
             </label>
             <br></br>
             <label>
-                Date:
-                <input type="date" name="date" value={date} onChange={() => "fill"}/>
+                Date formatted like: YYYY-MM-DD
+                <input type="date" name="date" value={date} onChange={props.handleEventFormChange}/>
             </label>
             <br></br>
             <label>
                 Location:
-                <input type="text" name="location" value={location} onChange={() => "fill"}/>
+                <input type="text" name="location" value={location} onChange={props.handleEventFormChange}/>
             </label>
             <br></br>
             <label>
                 Description:
-                <textarea name="description" value={description} onChange={() => "fill"}></textarea>
+                <textarea name="description" value={description} onChange={props.handleEventFormChange}></textarea>
             </label>
             <br></br>
             <input type="submit" value="Submit" />
@@ -45,4 +44,4 @@ const mapStateToProps = (state) => ({
     form: state.month.eventForm
 })
 
-export default connect(mapStateToProps)(EventForm)
+export default connect(mapStateToProps, {handleEventFormChange})(EventForm)
