@@ -10,7 +10,7 @@ const nullMonth = {
 
 const nullEventForm = {
     name: "",
-    date: null,
+    date: "",
     location: "",
     description: ""
 }
@@ -46,10 +46,5 @@ const monthsReducer = (state=initialMonthState, action) => {
             return {...state}
     }
 }
-
-// export const handleEventFormChange = (e) => ({
-//     type: "EVENT_FORM_CHANGE",
-//     payload: {name: e.target.name, value: e.target.value}
-// })
 
 export default monthsReducer
