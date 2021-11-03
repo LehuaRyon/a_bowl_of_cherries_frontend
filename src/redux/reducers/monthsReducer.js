@@ -8,14 +8,23 @@ const nullMonth = {
 // render runs before anything else, then componentdidmount, then fetch resolves and then state gets updated
 // this will clean up store
 
+const nullEventForm = {
+    name: "",
+    date: null,
+    location: "",
+    description: ""
+}
+// date: "", '1997-08-24'
+
 const initialMonthState = {
     months: [],
-    selectedMonth: nullMonth
+    selectedMonth: nullMonth,
     // selectedMonth: {
     //     id: null,
     //     name: "", 
     //     events: []
     // }
+    eventForm: nullEventForm
 }
 
 const monthsReducer = (state=initialMonthState, action) => {

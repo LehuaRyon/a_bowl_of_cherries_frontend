@@ -1,5 +1,6 @@
-import React, {Component} from "react";
+// import React, {Component} from "react";
 // gives lifecycle abilitities
+import React from 'react'
 
 class EventForm extends Component {
     constructor(props) {
