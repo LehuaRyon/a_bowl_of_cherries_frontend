@@ -37,6 +37,11 @@ const monthsReducer = (state=initialMonthState, action) => {
             return {...state, selectedMonth: action.payload}
         case "UNSET_SELECTED_MONTH":
             return {...state, selectedMonth: nullMonth}
+        case "EVENT_FORM_CHANGE":
+            return {...state, eventForm: {
+                ...state.eventForm,
+                [action.payload.name]: action.payload.value
+            }}
         default: 
             return {...state}
     }
