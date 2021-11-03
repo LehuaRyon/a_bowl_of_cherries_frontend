@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './App.css';
 import MonthsList from './containers/MonthsList'
 import MonthSelected from './containers/MonthSelected';
-import Login from './components/Login';
+import LoginForm from './components/LoginForm';
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/monthActionCreators'
@@ -37,7 +37,7 @@ class App extends Component {
             <Route path="/months" component={MonthsList}/>
           </Switch>
         :
-          <Login />
+          <LoginForm />
         }
       </>
     );

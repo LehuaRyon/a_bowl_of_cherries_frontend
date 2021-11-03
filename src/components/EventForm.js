@@ -1,24 +1,48 @@
 // import React, {Component} from "react";
 // gives lifecycle abilitities
 import React from 'react'
+import { connect } from 'react-redux'
+import {} from '../redux/actions/userActionCreators'
 
-class EventForm extends Component {
-    constructor(props) {
-        super(props)
-        // occasions[0] === Event #1
-        // occasions[1] === Event #2
-        this.state = {
-            
-        }
+const EventForm = (props) => {
+    
+    const onSubmit = (e) => {
+        e.preventDefault()
+  
     }
 
-    render() {
-        return (
-            <div>
-                <p>This is the form area</p>
-            </div>
-        )
-    }
+    return (
+        <form onSubmit={onSubmit}>
+            <label>
+                Name:
+                <input type="text" name="name" value={name} onChange={() => "fill"}/>
+            </label>
+            <br></br>
+            <label>
+                Date:
+                <input type="date" name="date" value={date} onChange={() => "fill"}/>
+            </label>
+            <br></br>
+            <label>
+                Location:
+                <input type="text" name="location" value={location} onChange={() => "fill"}/>
+            </label>
+            <br></br>
+            <label>
+                Description:
+                <textarea name="description" value={description} onChange={() => "fill"}></textarea>
+            </label>
+            <br></br>
+            <input type="submit" value="Submit" />
+        </form>
+    )
 }
+// if signup is true, sign up, if not, login shows instead
+// password confirmation only shows on if on signup
+// going to see login page no matter what route 
 
-export default EventForm
+const mapStateToProps = (state) => ({
+    form: state.month.eventForm
+})
+
+export default connect(mapStateToProps)(EventForm)

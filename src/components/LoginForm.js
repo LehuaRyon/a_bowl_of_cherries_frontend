@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {toggleSignup, handleLoginFormChange, sendSignup, sendLogin} from '../redux/actions/userActionCreators'
 
-const Login = (props) => {
+const LoginForm = (props) => {
     // console.log(props)
     const {signup, toggleSignup, form, handleLoginFormChange, sendSignup, sendLogin} = props
     // grab form from props and set equal to variable form
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => ({
     form: state.user.loginForm
 })
 
-export default connect(mapStateToProps, {toggleSignup, handleLoginFormChange, sendSignup, sendLogin})(Login)
+export default connect(mapStateToProps, {toggleSignup, handleLoginFormChange, sendSignup, sendLogin})(LoginForm)
 
 // controlled form in redux
 // keep on object that represents form in state

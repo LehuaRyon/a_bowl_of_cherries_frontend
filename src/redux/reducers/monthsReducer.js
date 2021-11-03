@@ -14,7 +14,7 @@ const nullEventForm = {
     location: "",
     description: ""
 }
-// date: "", '1997-08-24'
+// date: "", '1997-08-24', YYYY-MM-DD
 
 const initialMonthState = {
     months: [],
