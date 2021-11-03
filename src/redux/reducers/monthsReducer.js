@@ -47,9 +47,9 @@ const monthsReducer = (state=initialMonthState, action) => {
     }
 }
 
-export const handleEventFormChange = (e) => ({
-    type: "EVENT_FORM_CHANGE",
-    payload: {name: e.target.name, value: e.target.value}
-})
+// export const handleEventFormChange = (e) => ({
+//     type: "EVENT_FORM_CHANGE",
+//     payload: {name: e.target.name, value: e.target.value}
+// })
 
 export default monthsReducer

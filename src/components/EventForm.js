@@ -6,6 +6,8 @@ import {handleEventFormChange} from '../redux/actions/monthActionCreators'
 
 const EventForm = (props) => {
     
+    const {name, date, location, description} = props.form
+
     const onSubmit = (e) => {
         e.preventDefault()
     }
@@ -18,7 +20,7 @@ const EventForm = (props) => {
             </label>
             <br></br>
             <label>
-                Date formatted like: YYYY-MM-DD
+                Date:
                 <input type="date" name="date" value={date} onChange={props.handleEventFormChange}/>
             </label>
             <br></br>
@@ -41,7 +43,7 @@ const EventForm = (props) => {
 // going to see login page no matter what route 
 
 const mapStateToProps = (state) => ({
-    form: state.month.eventForm
+    form: state.months.eventForm
 })
 
 export default connect(mapStateToProps, {handleEventFormChange})(EventForm)

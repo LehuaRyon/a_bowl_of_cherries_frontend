@@ -59,3 +59,8 @@ export const setSelectedMonth = (id) => {
 
 // just regular object, no need thun
 export const unsetSelectedMonth = () => ({type: "UNSET_SELECTED_MONTH"})
+
+export const handleEventFormChange = (e) => ({
+    type: "EVENT_FORM_CHANGE",
+    payload: {name: e.target.name, value: e.target.value}
+})
