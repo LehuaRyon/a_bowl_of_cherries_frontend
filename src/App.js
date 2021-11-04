@@ -6,7 +6,7 @@ import LoginForm from './components/LoginForm';
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/monthActionCreators'
-import {autoLogin} from './redux/actions/userActionCreators'
+import {autoLogin, logout} from './redux/actions/userActionCreators'
 import {Switch, Route} from 'react-router-dom'
 // allows to make components appear based on what route i go to
 class App extends Component {
@@ -32,10 +32,13 @@ class App extends Component {
         </header>
         {this.props.user.id
         ?
+          <>
+          <button onClick={logout}></button>
           <Switch>
             <Route path="/months/:id" component={MonthSelected}/>
             <Route path="/months" component={MonthsList}/>
           </Switch>
+          </>
         :
           <LoginForm />
         }
@@ -57,7 +60,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps, {setMonths, autoLogin})(App);
+export default connect(mapStateToProps, {setMonths, autoLogin, logout})(App);
 
 // export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null

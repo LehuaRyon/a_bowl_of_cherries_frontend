@@ -74,3 +74,13 @@ export const autoLogin = () => {
     })
     }
 }
+
+export const logout = () => {
+    return dispatch => {
+        localStorage.clear(token)
+        dispatch({
+            type: "LOGOUT"
+        })
+    }
+}
+// using side effect so need to put dispatch
