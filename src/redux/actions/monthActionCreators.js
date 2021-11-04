@@ -8,9 +8,13 @@ const api_url = 'http://localhost:3000/api/v1/months'
 
 export const setMonths = () => {
     return dispatch => {
+        // async call to api, why thunk is installed, 
+        // need to return another function that will receive dispatch as argument
         fetch(api_url)
+        // making call to index route of months
         .then(res => res.json())
         .then(months => dispatch({
+            // dispatch an action
             type: "SET_MONTHS",
             // use the SET_MONTHS case in monthsReducer
             payload: months
@@ -75,11 +79,13 @@ export const submitEvent = (eventData) => {
             },
             body: JSON.stringify(eventData),
         })
+        // after i post object to db,
         .then(resp => resp.json())
         .then(event => dispatch({
             type: "SET_EVENT",
             payload: event
         }))
+        // then dispatching event to  monthsReducer so it can update store state
     }
 }
 

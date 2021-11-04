@@ -15,6 +15,7 @@ class MonthSelected extends Component {
         // getting the id from the route, match.params are props given to me by router
         this.props.setSelectedMonth(id)
     }
+    // ensures when this component mounts, go and make the fetch request for that month, get all data
 
     componentWillUnmount() {
         this.props.unsetSelectedMonth()
@@ -81,6 +82,8 @@ const mapStateToProps = (state) => ({
     ...state.months.filterForm
     // search: state.months.filterForm.search
 })
+// msp is method that gives access to actions
 
 export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthSelected)
-// export default connect(mapStateToProps, {setSelectedMonth})(MonthSelected)
+// connect automatically expects msp as first argument, or placeholder null
+// object after msp, makes those actions availiable to MonthSelected.js as a prop

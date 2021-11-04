@@ -1,3 +1,5 @@
+// handling month's part of redux store
+
 const nullMonth = {
     id: null,
     name: "", 
@@ -53,6 +55,7 @@ const monthsReducer = (state=initialMonthState, action) => {
         case "SET_EVENT":
             return {
                 ...state,
+                // copy over all state
                 selectedMonth: {
                     ...state.selectedMonth,
                     // should have everythign that it already had
@@ -65,6 +68,7 @@ const monthsReducer = (state=initialMonthState, action) => {
                 eventForm: nullEventForm
                 // clear out form
             }
+            // returning new object
         default: 
             return {...state}
     }
