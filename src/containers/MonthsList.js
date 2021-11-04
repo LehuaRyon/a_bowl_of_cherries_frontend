@@ -1,17 +1,17 @@
 import React from "react";
 import {connect} from 'react-redux'
 import Month from "../components/Month";
-import Filter from "../components/Filter";
+// import Filter from "../components/Filter";
 
 const MonthsList = (props) => {
     // console.log(props.months)
     return(
-        <>
-            <Filter />
+        // <>
+        //     <Filter />
             <div className="cards">
                 {props.months.map(month => <Month key={month.id} {...month} />)}
             </div>
-        </>
+        // </>
     )
 }
 

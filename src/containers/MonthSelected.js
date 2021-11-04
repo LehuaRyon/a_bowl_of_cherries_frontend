@@ -4,7 +4,7 @@ import { connect } from "react-redux"
 import Event from '../components/Event'
 import EventForm from '../components/EventForm'
 import {setSelectedMonth, unsetSelectedMonth} from '../redux/actions/monthActionCreators'
-// import {setSelectedMonth} from '../redux/actions/monthActionCreators'
+import Filter from "../components/Filter";
 
 class MonthSelected extends Component {
 
@@ -35,10 +35,10 @@ class MonthSelected extends Component {
             // </div>
 
             <>
-                {/* <h1>{this.props.name} Events</h1> */}
-                <h1>{name} Events</h1>
                 <button onClick={history.goBack}>Go Back</button>
                 {/* can also just reroute to months again */}
+                {/* <h1>{this.props.name} Events</h1> */}
+                <h1>{name} Events</h1>
                 {/* {eventsArray.map(({id, name, date, location, description, username}) => 
                 <div className="show" key={id}>
                     <h2>{name}</h2> 
@@ -49,9 +49,8 @@ class MonthSelected extends Component {
                     <br></br>
                     <br></br>
                 </div>)} */}
-                <br></br>
-                <br></br>
                 <div className="events">
+                    <Filter />
                     <EventForm month_id={id}/>
                     {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
                 </div>

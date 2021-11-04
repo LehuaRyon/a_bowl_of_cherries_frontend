@@ -15,6 +15,7 @@ const EventForm = (props) => {
 
     return (
         <form onSubmit={onSubmit}>
+            <h2>Add a new event!</h2>
             <label>
                 Name:
                 <input type="text" name="name" value={name} onChange={props.handleEventFormChange}/>
