@@ -10,7 +10,7 @@ const EventForm = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
-        props.submitEvent(props.form)
+        props.submitEvent({...props.form, month_id: props.month_id})
     }
 
     return (

@@ -52,8 +52,8 @@ class MonthSelected extends Component {
                 <br></br>
                 <br></br>
                 <div className="events">
-                    <EventForm />
-                    {events.map(monthEvent => <Event key={monthEvent.id} month_id={id} {...monthEvent}/>)}
+                    <EventForm month_id={id}/>
+                    {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
                 </div>
             </>
             
