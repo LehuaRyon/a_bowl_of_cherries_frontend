@@ -42,6 +42,21 @@ const monthsReducer = (state=initialMonthState, action) => {
                 ...state.eventForm,
                 [action.payload.name]: action.payload.value
             }}
+        case "SET_EVENT":
+            return {
+                ...state,
+                selectedMonth: {
+                    ...state.selectedMonth,
+                    // should have everythign that it already had
+                    events: [...state.selectedMonth.events, action.payload]
+                    // should have everything it already had, & new event
+                    // nondestructive way to push something to end of the array
+                        // copy original, then updating events key to have another event
+                    // copy of everything
+                },
+                eventForm: nullEventForm
+                // clear out form
+            }
         default: 
             return {...state}
     }
