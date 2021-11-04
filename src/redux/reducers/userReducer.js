@@ -1,4 +1,4 @@
-const initialLoginForm = {
+const nullLoginForm = {
     username: "",
     password: "",
     passwordConfirmation: ""
@@ -9,7 +9,7 @@ const initialUserState = {
     id: null,
     username: null,
     signup: false,
-    loginForm: initialLoginForm
+    loginForm: nullLoginForm
 }
 
 const userReducer = (state=initialUserState, action) => {
@@ -28,7 +28,7 @@ const userReducer = (state=initialUserState, action) => {
             return {...state, ...action.payload.user}
             // give me user name and id & overwrite it in initialUserState
         case "LOGOUT":
-            return {...state, username: null, id: null}
+            return {...state, username: null, id: null, loginForm: nullLoginForm}
         default: 
             return {...state}
     }
