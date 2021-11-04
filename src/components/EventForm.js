@@ -2,7 +2,7 @@
 // gives lifecycle abilitities
 import React from 'react'
 import { connect } from 'react-redux'
-import {handleEventFormChange} from '../redux/actions/monthActionCreators'
+import {handleEventFormChange, submitEvent} from '../redux/actions/monthActionCreators'
 
 const EventForm = (props) => {
     
@@ -46,4 +46,5 @@ const mapStateToProps = (state) => ({
     form: state.months.eventForm
 })
 
-export default connect(mapStateToProps, {handleEventFormChange})(EventForm)
+export default connect(mapStateToProps, {handleEventFormChange, submitEvent})(EventForm)
+// invoking created actions from monthActionCreators
