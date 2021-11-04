@@ -28,7 +28,7 @@ class MonthSelected extends Component {
         const {name, history, id} = this.props
 
         const searchedEvents = this.props.events.filter(event => {
-            return event.name.toLowerCase().includes(this.props.search.toLowerCase())
+            return (event.name.toLowerCase().includes(this.props.search.toLowerCase())) || (event.location.toLowerCase().includes(this.props.search.toLowerCase()))
         })
 
         return (
