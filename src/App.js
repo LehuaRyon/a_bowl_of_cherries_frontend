@@ -33,7 +33,7 @@ class App extends Component {
         {this.props.user.id
         ?
           <>
-          <button onClick={logout}></button>
+          <button onClick={this.props.logout}>Logout</button>
           <Switch>
             <Route path="/months/:id" component={MonthSelected}/>
             <Route path="/months" component={MonthsList}/>

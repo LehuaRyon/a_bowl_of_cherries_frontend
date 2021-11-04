@@ -27,6 +27,8 @@ const userReducer = (state=initialUserState, action) => {
         case "SET_USER":
             return {...state, ...action.payload.user}
             // give me user name and id & overwrite it in initialUserState
+        case "LOGOUT":
+            return {...state, username: null, id: null}
         default: 
             return {...state}
     }

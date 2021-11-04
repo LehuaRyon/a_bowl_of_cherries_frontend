@@ -77,7 +77,7 @@ export const autoLogin = () => {
 
 export const logout = () => {
     return dispatch => {
-        localStorage.clear(token)
+        localStorage.clear("token")
         dispatch({
             type: "LOGOUT"
         })
