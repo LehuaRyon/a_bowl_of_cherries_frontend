@@ -10,6 +10,7 @@ const EventForm = (props) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        props.submitEvent(props.form)
     }
 
     return (

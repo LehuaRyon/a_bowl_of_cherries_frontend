@@ -24,7 +24,7 @@ class MonthSelected extends Component {
         // console.log(this.props)
         // const eventsArray = this.props.events
         // console.log(eventsArray)
-        const {name, events, history} = this.props
+        const {name, events, history, id} = this.props
         return (
             // <div>
             //     <h1>{this.props.name} Events</h1>
@@ -53,7 +53,7 @@ class MonthSelected extends Component {
                 <br></br>
                 <div className="events">
                     <EventForm />
-                    {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
+                    {events.map(monthEvent => <Event key={monthEvent.id} month_id={id} {...monthEvent}/>)}
                 </div>
             </>
             
