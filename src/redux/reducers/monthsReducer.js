@@ -24,7 +24,10 @@ const initialMonthState = {
     //     name: "", 
     //     events: []
     // }
-    eventForm: nullEventForm
+    eventForm: nullEventForm,
+    filterForm: {
+        search: ""
+    }
 }
 
 const monthsReducer = (state=initialMonthState, action) => {
@@ -40,6 +43,11 @@ const monthsReducer = (state=initialMonthState, action) => {
         case "EVENT_FORM_CHANGE":
             return {...state, eventForm: {
                 ...state.eventForm,
+                [action.payload.name]: action.payload.value
+            }}
+        case "FILTER_FORM_CHANGE":
+            return {...state, filterForm: {
+                ...state.filterForm,
                 [action.payload.name]: action.payload.value
             }}
         case "SET_EVENT":

@@ -82,3 +82,10 @@ export const submitEvent = (eventData) => {
         }))
     }
 }
+
+export const handleFilterFormChange = (e) => ({
+    type: "FILTER_FORM_CHANGE",
+    payload: {name: e.target.name, value: e.target.value}
+})
+// reuable code, maybe refactor?
+// DRY bad or good in actioncreators?

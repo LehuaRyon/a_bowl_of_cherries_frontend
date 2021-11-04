@@ -1,7 +1,29 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import {handleFilterFormChange} from '../redux/actions/monthActionCreators'
 
 const Filter = (props) => {
-    return(<h1>Testing</h1>)
+    return(
+        <form>
+            <label>
+                Search:
+                <input type="text" name="search" value={props.search} onChange={props.handleFilterFormChange}/>
+            </label>
+            <br></br>
+            {/* <label>
+                Password:
+                <input type="password" name="password" value={password} onChange={handleLoginFormChange}/>
+            </label> */}
+            <br></br>
+            <input type="submit" value="Submit" />
+        </form>
+    )
 }
 
-export default Filter
+const mapStateToProps = (state) => ({
+    ...state.months.filterForm
+})
+
+export default connect(mapStateToProps, {handleFilterFormChange})(Filter)
+
+// creating controlled form thats going to search, fill out some things in state for search

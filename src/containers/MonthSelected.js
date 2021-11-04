@@ -24,7 +24,13 @@ class MonthSelected extends Component {
         // console.log(this.props)
         // const eventsArray = this.props.events
         // console.log(eventsArray)
-        const {name, events, history, id} = this.props
+        // const {name, events, history, id} = this.props
+        const {name, history, id} = this.props
+
+        const searchedEvents = this.props.events.filter(event => {
+            return event.name.toLowerCase().includes(this.props.search.toLowerCase())
+        })
+
         return (
             // <div>
             //     <h1>{this.props.name} Events</h1>
@@ -52,7 +58,8 @@ class MonthSelected extends Component {
                 <div className="events">
                     <Filter />
                     <EventForm month_id={id}/>
-                    {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
+                    {/* {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)} */}
+                    {searchedEvents.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
                 </div>
             </>
             
@@ -70,7 +77,9 @@ class MonthSelected extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    ...state.months.selectedMonth
+    ...state.months.selectedMonth,
+    ...state.months.filterForm
+    // search: state.months.filterForm.search
 })
 
 export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthSelected)
