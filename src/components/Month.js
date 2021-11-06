@@ -10,14 +10,6 @@ const Month = (props) => {
             <p><Link to={"months/" + id}>{name}</Link></p>
         </div>
     )
-
-    // return(
-    //     <div className="card">
-    //         <p><Link to={{
-    //             pathname: `${id}`
-    //         }}>{name}</Link></p>
-    //     </div>
-    // )
 }
 
 export default Month

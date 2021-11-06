@@ -1,3 +1,4 @@
+// containers house other components, children
 import React, {Component} from 'react'
 import { connect } from "react-redux"
 // making class component with lifecycle methods

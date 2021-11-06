@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './App.css';
+import NavBar from './components/NavBar';
 import Home from './components/Home'
 import About from './components/About'
 import MonthsList from './containers/MonthsList'
@@ -35,11 +36,12 @@ class App extends Component {
         {this.props.user.id
         ?
           <>
+          <NavBar />
           <button onClick={this.props.logout}>Logout</button>
           <Switch>
             <Route exact path="/" component={Home}/>
             {/* needs to be exact path or else it'll math anything with / */}
-            <Route exact path="/about" component={About}/>
+            <Route path="/about" component={About}/>
             <Route path="/months/:id" component={MonthSelected}/>
             <Route path="/months" component={MonthsList}/>
           </Switch>
