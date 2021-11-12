@@ -69,6 +69,18 @@ const monthsReducer = (state=initialMonthState, action) => {
                 // clear out form
             }
             // returning new object
+            case "UNSET_EVENT":
+            return {
+                ...state,
+                // copy over all state
+                selectedMonth: {
+                    ...state.selectedMonth,
+                    // should have everythign that it already had
+                    events: [...state.selectedMonth.events.filter(event => event.id !== action.payload)]
+                    // should have everything it already had minus event
+                }
+            }
+            // return state.filter(event => event.id !== action.payload)
         default: 
             return {...state}
     }

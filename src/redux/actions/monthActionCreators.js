@@ -89,6 +89,37 @@ export const submitEvent = (eventData) => {
     }
 }
 
+// export const deleteEvent = (eventId) => {
+//     return dispatch => {
+//         fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Authorization': localStorage.token,
+//                 'Content-Type': 'application/json',
+//             },
+//         })
+//         .then(resp => resp.json())
+//         .then(eventId => dispatch({
+//             type: "UNSET_EVENT",
+//             payload: eventId
+//         }))
+//     }
+// }
+
+export const deleteEvent = (eventId) => {
+    return dispatch => {
+        dispatch({type: "UNSET_EVENT", payload: eventId})
+        // changed to dispatch first bc the backend it was deleted but on the frontend it was still showing
+        fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
+            method: 'DELETE',
+            headers: {
+                'Authorization': localStorage.token,
+                'Content-Type': 'application/json',
+            }
+        })
+    }
+}
+
 export const handleFilterFormChange = (e) => ({
     type: "FILTER_FORM_CHANGE",
     payload: {name: e.target.name, value: e.target.value}

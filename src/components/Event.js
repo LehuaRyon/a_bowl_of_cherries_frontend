@@ -1,5 +1,6 @@
 import React from 'react'
 // no need connecting redux, just presentation
+import EventDelete from './EventDelete'
 
 const Event = (props) => {
     const {name, date, location, description, username} = props
@@ -11,6 +12,7 @@ const Event = (props) => {
             <p>Location: {location}</p>
             <p>Description: {description}</p>
             <p>Added By: {username}</p>
+            <EventDelete event={props} />
             <br></br>
             <br></br>
         </div>
