@@ -14,7 +14,9 @@ const nullEventForm = {
     name: "",
     date: "",
     location: "",
+    website: "",
     description: ""
+    // website: ""
 }
 // date: "", '1997-08-24', YYYY-MM-DD
 
@@ -80,7 +82,6 @@ const monthsReducer = (state=initialMonthState, action) => {
                     // should have everything it already had minus event
                 }
             }
-            // return state.filter(event => event.id !== action.payload)
         default: 
             return {...state}
     }

@@ -10,7 +10,8 @@ import {handleEventFormChange, submitEvent} from '../redux/actions/monthActionCr
 
 const EventForm = (props) => {
     
-    const {name, date, location, description} = props.form
+    // const {name, date, location, description, website} = props.form
+    const {name, date, location, website, description} = props.form
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -35,6 +36,11 @@ const EventForm = (props) => {
             <label>
                 Location:
                 <input type="text" name="location" value={location} onChange={props.handleEventFormChange}/>
+            </label>
+            <br></br>
+            <label>
+                Website:
+                <input type="text" name="website" value={website} onChange={props.handleEventFormChange}/>
             </label>
             <br></br>
             <label>
