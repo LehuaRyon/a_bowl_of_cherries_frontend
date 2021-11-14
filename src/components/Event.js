@@ -15,8 +15,6 @@ const Event = (props) => {
             <p><a href={website}>Website</a></p>
             {/* <p>Added By: {username}</p> */}
             <EventDelete event={props} />
-            <br></br>
-            <br></br>
         </div>
     )
 }

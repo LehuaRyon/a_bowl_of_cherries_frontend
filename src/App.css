@@ -72,6 +72,8 @@ body {
   text-align: left;
   color: #ac1051;
   background-color: #ebc858;
+  background-image: url("https://cdn.wallpapersafari.com/9/81/nYfSMD.jpg");
+  background-size:100% auto;
 }
 
 h1 {
@@ -79,6 +81,16 @@ h1 {
   /* text-shadow: -3px 0 white, 0 3px white, 3px 0 white, 0 -3px white; */
   text-align: center;
 }
+
+h3 {
+  color:  lightgoldenrodyellow;
+  text-align: left;
+  margin: 10px;
+  background-color: #ac1051;
+  border-radius: 30px;
+  padding: 1em;
+}
+
 /* .new_event {
   margin-left: 30%;
   min-width: 300px;
@@ -97,16 +109,16 @@ h1 {
 
 .navbar ul {
   list-style: none;
-margin: 0 2px;
-padding: 0;
-display: flex;
-justify-content: space-around;
+  margin: 0 2px;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
 }
 
 .navbar ul li {
-display:inline;
-margin-right: 5%;
-font-size:1.2em;
+  display:inline;
+  margin-right: 5%;
+  font-size:1.2em;
 }
 
 .navbar ul li a {
@@ -124,12 +136,38 @@ font-size:1.2em;
   margin: 10px;
   background-color: lightgoldenrodyellow;
   border-radius: 10px;
+  /* padding: 0.5em; */
+  padding: 0px 10px 10px 10px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+.homecard {
+  /* width: 300px;
+  height: 500px; */
+  margin: 10px;
+  background-color: lightgoldenrodyellow;
+  border-radius: 30px;
+  padding: 1em;
+}
+
+.aboutcard {
+  /* width: 300px;
+  height: 500px; */
+  margin: 10px;
+  background-color: lightgoldenrodyellow;
+  border-radius: 30px;
+  padding: 1em;
+}
+
+#aboutgif {
+  text-align: center;
+  /* width: 300px;
+  height: 200px; */
 }
 
 /* .card img {
@@ -165,3 +203,10 @@ font-size:1.2em;
   color: yellow;
   padding-left: 0;
 } */
+
+iframe {
+  /* border:none; */
+  border: 5px solid rgb(73, 14, 14);
+  margin: 0 auto;
+  width: 100%;
+}
