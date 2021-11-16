@@ -3,7 +3,8 @@ import React from 'react'
 import EventDelete from './EventDelete'
 
 const Event = (props) => {
-    const {name, date, location, description, website} = props
+    // console.log(props)
+    const {name, date, location, description, website, username} = props
     return (
         <div className="card">
             <h2>{name}</h2> 
@@ -13,7 +14,7 @@ const Event = (props) => {
             <p>Description: {description}</p>
             <p><a href={location}>Location</a></p>
             <p><a href={website}>Website</a></p>
-            {/* <p>Added By: {username}</p> */}
+            <p>Added By: {username}</p>
             <EventDelete event={props} />
         </div>
     )

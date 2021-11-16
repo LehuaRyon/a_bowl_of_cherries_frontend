@@ -5,7 +5,8 @@ import {deleteEvent} from '../redux/actions/monthActionCreators'
 const EventDelete = (props) => {
     
     const handleDelete = (event) => {
-        props.deleteEvent(event.id, event.month_id)
+        // props.deleteEvent(event.id, event.month_id)
+        props.deleteEvent(event.id, event.user_id)
     }
 
     let event = props.event
