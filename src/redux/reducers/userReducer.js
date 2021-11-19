@@ -12,6 +12,15 @@ const initialUserState = {
     loginForm: nullLoginForm
 }
 
+// const initialUserState = {
+//     user: {
+//         id: null,
+//         username: "",
+//         signup: false,
+//         loginForm: nullLoginForm
+//     }
+// }
+
 const userReducer = (state=initialUserState, action) => {
     switch(action.type){
         case "TOGGLE_SIGNUP":
@@ -27,7 +36,8 @@ const userReducer = (state=initialUserState, action) => {
         case "SET_USER":
             return {...state, ...action.payload.user}
             // give me user name and id & overwrite it in initialUserState
-        case "LOGOUT":
+            // return {...state, user: action.payload}
+            case "LOGOUT":
             return {...state, username: null, id: null, loginForm: nullLoginForm}
         default: 
             return {...state}

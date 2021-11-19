@@ -30,6 +30,12 @@ export const sendSignup = (userData) => {
             payload: {user: resp.user}
             // payload: resp.user
         })
+        // .then(user => {
+        //     localStorage.token = user.token
+        //     dispatch({
+        //     type: "SET_USER",
+        //     payload: user
+        // })
     })
     }
 }
@@ -67,9 +73,11 @@ export const autoLogin = () => {
         })
         .then(resp => resp.json())
         .then(resp => {
+            // localStorage.token = resp.token
             dispatch({
             type: "SET_USER",
             payload: {user: resp.user}
+            // payload: resp.user
         })
     })
     }

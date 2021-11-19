@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {toggleSignup, handleLoginFormChange, sendSignup, sendLogin} from '../redux/actions/userActionCreators'
+import {useHistory} from 'react-router-dom'
 
 const LoginForm = (props) => {
     // console.log(props)
@@ -8,24 +9,30 @@ const LoginForm = (props) => {
     // grab form from props and set equal to variable form
     const {username, password, passwordConfirmation} = form
     // destructure the form too so i have access
-    const onSubmit = (e) => {
+    const history = useHistory()
+
+    const handleSubmit = (e) => {
         e.preventDefault()
         if (signup) {
             if (password === passwordConfirmation) {
                 sendSignup({username: username, password: password})
+                // sendSignup({username, password})
+                // give key variables name, and the value, variables value
             } else {
                 alert("Passwords do not match!")
             }
         } else {
             sendLogin({username: username, password: password})
+            // sendLogin({username, password})
         }
         // else statement saying, if loggining in instead, run something else
+        history.push("/")
     }
 
     return (
     <>
         <h1>{signup ? "Sign Up" : "Login"}</h1>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
             <label>
                 Username:
                 <input type="text" name="username" value={username} onChange={handleLoginFormChange}/>

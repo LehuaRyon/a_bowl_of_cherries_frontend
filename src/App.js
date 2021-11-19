@@ -33,6 +33,8 @@ class App extends Component {
           <Typography variant="h1">A Bowl Of Cherries</Typography>
           <hr />
         </header>
+        {/* {this.props.user.username
+        ? */}
         {this.props.user.id
         ?
           <>
