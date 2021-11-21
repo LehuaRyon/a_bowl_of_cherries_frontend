@@ -44,8 +44,8 @@ export const sendSignup = (userData) => {
 
 export const sendLogin = (userData) => {
     return dispatch => {
-        // fetch(api_url + "/sessions", {
-        fetch(api_url + "/login", {
+        fetch(api_url + "/sessions", {
+        // fetch(api_url + "/login", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -53,44 +53,50 @@ export const sendLogin = (userData) => {
             body: JSON.stringify(userData),
         })
         .then(resp => resp.json())
-        .then(resp => {
-            localStorage.token = resp.token
-            dispatch({
-            type: "SET_USER",
-            payload: {user: resp.user}
-            // payload: resp.user
-        })
         // .then(resp => {
         //     localStorage.token = resp.token
         //     dispatch({
         //     type: "SET_USER",
-        //     payload: resp.user
+        //     payload: {user: resp.user}
+        //     // payload: resp.user
         // })
+        .then(user => {
+            localStorage.token = user.token
+            dispatch({
+            type: "SET_USER",
+            payload: user
+        })
     })
     }
 }
 
 export const autoLogin = () => {
     return dispatch => {
-        fetch(api_url + "/autologin", {
-            method: 'POST',
-            headers: {
-                'Authorization': localStorage.token,
-            },
-        })
-        // can make get request
         // fetch(api_url + "/autologin", {
+        //     method: 'POST',
         //     headers: {
         //         'Authorization': localStorage.token,
         //     },
         // })
+        // can make get request
+        fetch(api_url + "/autologin", {
+            headers: {
+                'Authorization': localStorage.token,
+            },
+        })
         .then(resp => resp.json())
-        .then(resp => {
-            // localStorage.token = resp.token
+        // .then(resp => {
+        //     // localStorage.token = resp.token
+        //     dispatch({
+        //     type: "SET_USER",
+        //     payload: {user: resp.user}
+        //     // payload: resp.user
+        // })
+        .then(user => {
+            localStorage.token = user.token
             dispatch({
             type: "SET_USER",
-            payload: {user: resp.user}
-            // payload: resp.user
+            payload: user
         })
     })
     }
@@ -98,8 +104,8 @@ export const autoLogin = () => {
 
 export const logout = () => {
     return dispatch => {
-        localStorage.clear("token")
-        // localStorage.clear()
+        // localStorage.clear("token")
+        localStorage.clear()
         dispatch({
             type: "LOGOUT"
         })
