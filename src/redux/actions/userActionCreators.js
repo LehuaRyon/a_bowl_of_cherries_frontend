@@ -23,19 +23,19 @@ export const sendSignup = (userData) => {
             body: JSON.stringify(userData),
         })
         .then(resp => resp.json())
-        .then(resp => {
-            localStorage.token = resp.token
-            dispatch({
-            type: "SET_USER",
-            payload: {user: resp.user}
-            // payload: resp.user
-        })
-        // .then(user => {
-        //     localStorage.token = user.token
+        // .then(resp => {
+        //     localStorage.token = resp.token
         //     dispatch({
         //     type: "SET_USER",
-        //     payload: user
+        //     payload: {user: resp.user}
+        //     // payload: resp.user
         // })
+        .then(user => {
+            localStorage.token = user.token
+            dispatch({
+            type: "SET_USER",
+            payload: user
+        })
     })
     }
 }
@@ -44,6 +44,7 @@ export const sendSignup = (userData) => {
 
 export const sendLogin = (userData) => {
     return dispatch => {
+        // fetch(api_url + "/sessions", {
         fetch(api_url + "/login", {
             method: 'POST',
             headers: {
@@ -59,6 +60,12 @@ export const sendLogin = (userData) => {
             payload: {user: resp.user}
             // payload: resp.user
         })
+        // .then(resp => {
+        //     localStorage.token = resp.token
+        //     dispatch({
+        //     type: "SET_USER",
+        //     payload: resp.user
+        // })
     })
     }
 }
@@ -71,6 +78,12 @@ export const autoLogin = () => {
                 'Authorization': localStorage.token,
             },
         })
+        // can make get request
+        // fetch(api_url + "/autologin", {
+        //     headers: {
+        //         'Authorization': localStorage.token,
+        //     },
+        // })
         .then(resp => resp.json())
         .then(resp => {
             // localStorage.token = resp.token
@@ -86,6 +99,7 @@ export const autoLogin = () => {
 export const logout = () => {
     return dispatch => {
         localStorage.clear("token")
+        // localStorage.clear()
         dispatch({
             type: "LOGOUT"
         })

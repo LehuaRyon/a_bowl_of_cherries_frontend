@@ -15,15 +15,15 @@ const LoginForm = (props) => {
         e.preventDefault()
         if (signup) {
             if (password === passwordConfirmation) {
-                sendSignup({username: username, password: password})
-                // sendSignup({username, password})
+                // sendSignup({username: username, password: password})
+                sendSignup({username, password})
                 // give key variables name, and the value, variables value
             } else {
                 alert("Passwords do not match!")
             }
         } else {
-            sendLogin({username: username, password: password})
-            // sendLogin({username, password})
+            // sendLogin({username: username, password: password})
+            sendLogin({username, password})
         }
         // else statement saying, if loggining in instead, run something else
         history.push("/")

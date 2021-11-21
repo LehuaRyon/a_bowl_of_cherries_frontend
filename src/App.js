@@ -11,6 +11,7 @@ import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/monthActionCreators'
 import {autoLogin, logout} from './redux/actions/userActionCreators'
 import {Switch, Route} from 'react-router-dom'
+// import {useEffect} from 'react'
 // allows to make components appear based on what route i go to
 class App extends Component {
 
