@@ -23,6 +23,7 @@ export const sendSignup = (userData) => {
             body: JSON.stringify(userData),
         })
         .then(resp => resp.json())
+        // once the user is signed up, get the above back
         // .then(resp => {
         //     localStorage.token = resp.token
         //     dispatch({
@@ -32,6 +33,8 @@ export const sendSignup = (userData) => {
         // })
         .then(user => {
             localStorage.token = user.token
+            // take token from response(user) and save to localstorage
+            // creating a token from user_id
             dispatch({
             type: "SET_USER",
             payload: user
