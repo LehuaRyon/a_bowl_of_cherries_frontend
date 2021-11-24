@@ -95,7 +95,7 @@ export const submitEvent = (eventData) => {
 //             method: 'DELETE',
 //             headers: {
 //                 'Authorization': localStorage.token,
-//                 'Content-Type': 'application/json',
+//             //     'Content-Type': 'application/json',
 //             },
 //         })
 //         .then(resp => resp.json())
@@ -113,8 +113,8 @@ export const deleteEvent = (eventId) => {
         fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
             method: 'DELETE',
             headers: {
-                'Authorization': localStorage.token,
-                'Content-Type': 'application/json',
+                'Authorization': localStorage.token
+                // 'Content-Type': 'application/json',
             }
         })
     }

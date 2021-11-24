@@ -1,5 +1,4 @@
 // handling month's part of redux store
-
 const nullMonth = {
     id: null,
     name: "", 

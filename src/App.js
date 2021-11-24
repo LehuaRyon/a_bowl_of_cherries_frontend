@@ -9,8 +9,8 @@ import LoginForm from './components/LoginForm';
 import Typography from '@mui/material/Typography'
 import {connect} from 'react-redux'
 import {setMonths} from './redux/actions/monthActionCreators'
-import {autoLogin} from './redux/actions/userActionCreators'
-// import {autoLogin, logout} from './redux/actions/userActionCreators'
+// import {autoLogin} from './redux/actions/userActionCreators'
+import {autoLogin, logout} from './redux/actions/userActionCreators'
 import {Switch, Route} from 'react-router-dom'
 // import {useEffect} from 'react'
 // allows to make components appear based on what route i go to
@@ -37,11 +37,12 @@ class App extends Component {
         </header>
         {/* {this.props.user.username
         ? */}
+        {/* if there is a user, render all routes & nav, otherwise, render login/signup form */}
         {this.props.user.id
         ?
           <>
           <NavBar />
-          {/* <button onClick={this.props.logout}>Logout</button> */}
+          <button onClick={this.props.logout}>Logout</button>
           <Switch>
             <Route exact path="/" component={Home}/>
             {/* needs to be exact path or else it'll math anything with / */}
@@ -71,8 +72,8 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({user: state.user})
 
-export default connect(mapStateToProps, {setMonths, autoLogin})(App);
-// export default connect(mapStateToProps, {setMonths, autoLogin, logout})(App);
+// export default connect(mapStateToProps, {setMonths, autoLogin})(App);
+export default connect(mapStateToProps, {setMonths, autoLogin, logout})(App);
 
 // export default connect(null, mapDispatchToProps)(App);
 // dont have matchstatetoprops yet, so null
