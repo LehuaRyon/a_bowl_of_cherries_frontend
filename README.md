@@ -1,70 +1,38 @@
-# Getting Started with Create React App
+# A Bowl Of Cherries
+An event planning application built with a Ruby on Rails API backend and a React and Redux frontend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+This app was built for the [Flatiron School](https://flatironschool.com/) React project and is meant to let a user see all the upcoming events by month, listed by date, to see which events he or she would like to attend in the future.  Any user that signs up, can log in, be automatically logged in, see what events other users have added to any month, add his or her own event, delete his or her own event, and search an event within a month by the event's name and/or description.  A user can add or delete as many events as he or she would like. A user can only delete events created by his or herself, not others. All events are listed by the date in ascending order.   
 
-## Available Scripts
+#### Frontend: HTML, CSS, React, Redux, React Bootstrap
+#### Backend: Rails API -> [here](https://github.com/LehuaRyon/a_bowl_of_cherries_backend)
 
-In the project directory, you can run:
+## Local Installation
+To install and run the app on your local machine:
+1. Fork and click the green Clone or download button above and click the copy to clipboard button (for both a_bowl_of_cherries_frontend & a_bowl_of_cherries_backend)
+2. Open your Terminal with two tabs
+3. Direct the first tab to a_bowl_of_cherries_backend, run `git clone [paste the link from step 1]`
+4. Direct second tab to a_bowl_of_cherries_frontend, run `git clone [paste the link from step 1]`
+* In the first tab for a_bowl_of_cherries_backend:
+5. Run `bundle install` to install the necessary gems and dependencies
+6. Run `rails db:create` to create a database
+7. Run `rails db:migrate` to perform the database migrations
+6. Run `rails db:seed` to fill the database with month information  
+7. Run `rails s` to access and use the Rails API and open the server
+* In the second tab to a_bowl_of_cherries_frontend:
+8. Run `npm install && start` to have the browser open A Bowl Of Cherries' homepage
 
-### `npm start`
+## Contributing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/LehuaRyon/ukulele. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/LehuaRyon/ukulele/blob/main/CODE_OF_CONDUCT.md).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## License
 
-### `npm test`
+The gem is available as open source under the terms of the [MIT License](https://github.com/LehuaRyon/ukulele/blob/main/LICENSE).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Code of Conduct
 
-### `npm run build`
+Everyone interacting in the Ukulele's project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/LehuaRyon/ukulele/blob/main/CODE_OF_CONDUCT.md).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
