@@ -17,10 +17,10 @@ To install and run the app on your local machine:
 5. Run `bundle install` to install the necessary gems and dependencies
 6. Run `rails db:create` to create a database
 7. Run `rails db:migrate` to perform the database migrations
-6. Run `rails db:seed` to fill the database with month information  
-7. Run `rails s` to access and use the Rails API and open the server
+8. Run `rails db:seed` to fill the database with month information  
+9. Run `rails s` to access and use the Rails API and open the server
 * In the second tab to a_bowl_of_cherries_frontend:
-8. Run `npm install && start` to have the browser open A Bowl Of Cherries' homepage
+10. Run `npm install && start` to have the browser open A Bowl Of Cherries' homepage
 
 ## Contributing
 
