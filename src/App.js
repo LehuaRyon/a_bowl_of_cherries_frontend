@@ -23,10 +23,6 @@ class App extends Component {
   }
   // will run when App is rendered
 
-  // componentDidMount() {
-  //   console.log("Going to fetch events next")
-  // }
-
   render() {
     // console.log(this.props)
     return (
@@ -58,17 +54,6 @@ class App extends Component {
     );
   }
 }
-
-// {/* <EventList /> */}
-// if there is a user id, render all paths, if not, render login
-
-// const mapDispatchToProps = (dispatch) => {
-  // star: () => dispatch({type: "ADD_STAR"}) 
-// }
-
-// const mapDispatchToProps = (dispatch) => {
-  // star: () => dispatch(star) 
-// }
 
 const mapStateToProps = (state) => ({user: state.user})
 
