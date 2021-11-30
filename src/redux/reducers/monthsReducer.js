@@ -58,9 +58,12 @@ const monthsReducer = (state=initialMonthState, action) => {
                 ...state,
                 // copy over all state
                 selectedMonth: {
+                    // under selected month key, give us copy of selected month with new key of events, that has copy of original events array, but with action.payload added to end of it
                     ...state.selectedMonth,
-                    // should have everythign that it already had
-                    events: [...state.selectedMonth.events, action.payload]
+                    // grab all of current selectedMonth keys, should have everythign that it already had
+                    // events: [...state.selectedMonth.events, action.payload]
+                    events: [action.payload, ...state.selectedMonth.events]
+                        // going to show it first on list instead of bottom
                     // should have everything it already had, & new event
                     // nondestructive way to push something to end of the array
                         // copy original, then updating events key to have another event

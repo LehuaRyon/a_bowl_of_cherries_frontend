@@ -100,12 +100,22 @@ export const submitEvent = (event) => {
             body: JSON.stringify(event),
         })
         // after i post object to db,
-        .then(resp => resp.json())
-        .then(event => dispatch({
-            type: "SET_EVENT",
-            payload: event
-        }))
+        // .then(resp => resp.json())
+        // .then(event => dispatch({
+        //     type: "SET_EVENT",
+        //     payload: event
+        // }))
         // then dispatching event to  monthsReducer so it can update store state
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(event => dispatch({
+                    type: "SET_EVENT",
+                    payload: event
+                }))
+            } else {
+                resp.json().then(resp => alert(resp.errors))
+            }
+        })
     }
 }
 
