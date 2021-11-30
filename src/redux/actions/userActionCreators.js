@@ -22,24 +22,39 @@ export const sendSignup = (userData) => {
             },
             body: JSON.stringify(userData),
         })
-        .then(resp => resp.json())
-        // once the user is signed up, get the above back
+            //     .then(resp => resp.json())
+            //     // once the user is signed up, get the above back
+            //     // .then(resp => {
+            //     //     localStorage.token = resp.token
+            //     //     dispatch({
+            //     //     type: "SET_USER",
+            //     //     payload: {user: resp.user}
+            //     //     // payload: resp.user
+            //     // })
+            //     .then(user => {
+            //         localStorage.token = user.token
+            //         // take token from response(user) and save to localstorage
+            //         // creating a token from user_id
+            //         dispatch({
+            //         type: "SET_USER",
+            //         payload: user
+            //     })
+            // })
         // .then(resp => {
-        //     localStorage.token = resp.token
-        //     dispatch({
-        //     type: "SET_USER",
-        //     payload: {user: resp.user}
-        //     // payload: resp.user
+        //     if (resp.ok) {
+        //         resp.json().then(user => {
+        //             localStorage.token = user.token
+        //             dispatch({
+        //                 type: "SET_USER",
+        //                 payload: user
+        //                 // payload: user.user
+        //             })
+        //         })
+        //     } else {
+        //         resp.json().then(resp => alert(resp.errors))
+        //     }
         // })
-        .then(user => {
-            localStorage.token = user.token
-            // take token from response(user) and save to localstorage
-            // creating a token from user_id
-            dispatch({
-            type: "SET_USER",
-            payload: user
-        })
-    })
+        .then(resp => handleUserResp(resp, dispatch))
     }
 }
 // don't want to just send back user data, making it nested
@@ -55,21 +70,22 @@ export const sendLogin = (userData) => {
             },
             body: JSON.stringify(userData),
         })
-        .then(resp => resp.json())
-        // .then(resp => {
-        //     localStorage.token = resp.token
-        //     dispatch({
-        //     type: "SET_USER",
-        //     payload: {user: resp.user}
-        //     // payload: resp.user
-        // })
-        .then(user => {
-            localStorage.token = user.token
-            dispatch({
-            type: "SET_USER",
-            payload: user
-        })
-    })
+    //     .then(resp => resp.json())
+    //     // .then(resp => {
+    //     //     localStorage.token = resp.token
+    //     //     dispatch({
+    //     //     type: "SET_USER",
+    //     //     payload: {user: resp.user}
+    //     //     // payload: resp.user
+    //     // })
+    //     .then(user => {
+    //         localStorage.token = user.token
+    //         dispatch({
+    //         type: "SET_USER",
+    //         payload: user
+    //     })
+    // })
+        .then(resp => handleUserResp(resp, dispatch))
     }
 }
 
@@ -87,21 +103,22 @@ export const autoLogin = () => {
                 'Authorization': localStorage.token,
             },
         })
-        .then(resp => resp.json())
-        // .then(resp => {
-        //     // localStorage.token = resp.token
-        //     dispatch({
-        //     type: "SET_USER",
-        //     payload: {user: resp.user}
-        //     // payload: resp.user
-        // })
-        .then(user => {
-            localStorage.token = user.token
-            dispatch({
-            type: "SET_USER",
-            payload: user
-        })
-    })
+    //     .then(resp => resp.json())
+    //     // .then(resp => {
+    //     //     // localStorage.token = resp.token
+    //     //     dispatch({
+    //     //     type: "SET_USER",
+    //     //     payload: {user: resp.user}
+    //     //     // payload: resp.user
+    //     // })
+    //     .then(user => {
+    //         localStorage.token = user.token
+    //         dispatch({
+    //         type: "SET_USER",
+    //         payload: user
+    //     })
+    // })
+        .then(resp => handleUserResp(resp, dispatch))
     }
 }
 
@@ -115,3 +132,18 @@ export const logout = () => {
     }
 }
 // using side effect so need to put dispatch
+
+function handleUserResp(resp, dispatch){
+    if (resp.ok) {
+        resp.json().then(user => {
+            localStorage.token = user.token
+            dispatch({
+                type: "SET_USER",
+                payload: user
+                // payload: user.user
+            })
+        })
+    } else {
+        resp.json().then(resp => alert(resp.errors))
+    }
+}
