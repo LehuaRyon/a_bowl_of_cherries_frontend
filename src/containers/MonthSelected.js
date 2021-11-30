@@ -31,6 +31,7 @@ class MonthSelected extends Component {
 
         const searchedEvents = this.props.events.filter(event => {
             return (event.name.toLowerCase().includes(this.props.search.toLowerCase())) || (event.description.toLowerCase().includes(this.props.search.toLowerCase()))
+            // return (event.name.toLowerCase().includes(this.props.toLowerCase())) || (event.description.toLowerCase().includes(this.props.toLowerCase()))
         })
 
         return (
@@ -57,9 +58,10 @@ class MonthSelected extends Component {
                     <br></br>
                     <br></br>
                 </div>)} */}
-                <div className="events">
+                <div className="eventsinfo">
                     <Filter />
                     <EventForm month_id={id}/>
+                    {/* <EventForm id={id}/> */}
                     {/* {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)} */}
                     {searchedEvents.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
                 </div>

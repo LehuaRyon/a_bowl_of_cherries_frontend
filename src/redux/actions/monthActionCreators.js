@@ -69,15 +69,35 @@ export const handleEventFormChange = (e) => ({
     payload: {name: e.target.name, value: e.target.value}
 })
 
-export const submitEvent = (eventData) => {
+// export const submitEvent = (eventData) => {
+//     return dispatch => {
+//         fetch('http://localhost:3000/api/v1/events', {
+//             method: 'POST',
+//             headers: {
+//                 'Authorization': localStorage.token,
+//                 'Content-Type': 'application/json',
+//             },
+//             body: JSON.stringify(eventData),
+//         })
+//         // after i post object to db,
+//         .then(resp => resp.json())
+//         .then(event => dispatch({
+//             type: "SET_EVENT",
+//             payload: event
+//         }))
+//         // then dispatching event to  monthsReducer so it can update store state
+//     }
+// }
+
+export const submitEvent = (event) => {
     return dispatch => {
-        fetch('http://localhost:3000/api/v1/events', {
+        fetch(`${api_url}/${event.month_id}/events`, {
             method: 'POST',
             headers: {
                 'Authorization': localStorage.token,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify(eventData),
+            body: JSON.stringify(event),
         })
         // after i post object to db,
         .then(resp => resp.json())
@@ -106,11 +126,25 @@ export const submitEvent = (eventData) => {
 //     }
 // }
 
-export const deleteEvent = (eventId) => {
+// export const deleteEvent = (eventId) => {
+//     return dispatch => {
+//         dispatch({type: "UNSET_EVENT", payload: eventId})
+//         // changed to dispatch first bc the backend it was deleted but on the frontend it was still showing
+//         fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
+//             method: 'DELETE',
+//             headers: {
+//                 'Authorization': localStorage.token
+//                 // 'Content-Type': 'application/json',
+//             }
+//         })
+//     }
+// }
+
+export const deleteEvent = (eventId, monthId) => {
     return dispatch => {
         dispatch({type: "UNSET_EVENT", payload: eventId})
         // changed to dispatch first bc the backend it was deleted but on the frontend it was still showing
-        fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
+        fetch(`${api_url}/${monthId}/events/${eventId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': localStorage.token

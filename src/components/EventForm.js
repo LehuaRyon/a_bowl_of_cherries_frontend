@@ -9,19 +9,24 @@ import { connect } from 'react-redux'
 import {handleEventFormChange, submitEvent} from '../redux/actions/monthActionCreators'
 
 const EventForm = (props) => {
-    
+    // console.log(props)
     // const {name, date, location, description, website} = props.form
     const {name, date, location, website, description} = props.form
+    // const monthId = props.month_id
+    const month_id = props.month_id
+    const newEvent = {name, date, location, website, description, month_id}
+    // console.log(newEvent)
 
     const onSubmit = (e) => {
         e.preventDefault()
-        props.submitEvent({...props.form, month_id: props.month_id})
+        // props.submitEvent({...props.form, month_id: props.month_id})
+        props.submitEvent(newEvent)
     }
     // with redux, calling on action submitEvent, that dispatches new object to monthsReducer,
     // so can update store state & at same time, action submitEvent will post fetch to api for persisting to db
 
     return (
-        <form onSubmit={onSubmit}>
+        <form className="new_event" onSubmit={onSubmit}>
             <h2>Add a new event!</h2>
             <label>
                 Name:
@@ -58,6 +63,7 @@ const EventForm = (props) => {
 
 const mapStateToProps = (state) => ({
     form: state.months.eventForm
+    // monthId: state.months.selectedMonth.id
 })
 
 export default connect(mapStateToProps, {handleEventFormChange, submitEvent})(EventForm)

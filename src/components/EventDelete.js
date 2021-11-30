@@ -3,14 +3,20 @@ import { connect } from 'react-redux'
 import {deleteEvent} from '../redux/actions/monthActionCreators'
 
 const EventDelete = (props) => {
-    // console.log(props)
+    // console.log(props.month_id)
+    const month_id = props.month_id
+
     const handleDelete = (event) => {
         // props.deleteEvent(event.id, event.month_id)
         // props.deleteEvent(event.id, event.user_id)
         // props.deleteEvent(event.id)
 
+        // if (props.event.username === props.username) {
+        //     props.deleteEvent(event.id)
+        // }
+
         if (props.event.username === props.username) {
-            props.deleteEvent(event.id)
+            props.deleteEvent(event.id, month_id)
         }
     }
 
@@ -31,7 +37,8 @@ const EventDelete = (props) => {
 // invoking created action from monthActionCreators
 
 const mapStateToProps = (state) => ({
-    ...state.user
+    ...state.user,
+    month_id: state.months.selectedMonth.id
 })
 
 export default connect(mapStateToProps, {deleteEvent})(EventDelete)
