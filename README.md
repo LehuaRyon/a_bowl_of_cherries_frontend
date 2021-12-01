@@ -19,6 +19,7 @@ To install and run the app on your local machine:
 7. Run `rails db:migrate` to perform the database migrations
 8. Run `rails db:seed` to fill the database with month information
 9. Create an `.env` file in the root directory and add this inside it `JWT_KEY="put any word you'd like here"` to use JWT
+> **Note**: Since the `.env` file will not contain any sensitive information, you do not need to add it to your `.gitignore` file, but usually a `.env` file should not be tracked, committed or pushed to Github. 
 10. Run `rails s` to access and use the Rails API and open the server
 * In the second tab to a_bowl_of_cherries_frontend:
 11. Run `npm install && start` to have the browser open A Bowl Of Cherries' homepage
