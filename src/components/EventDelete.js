@@ -4,8 +4,9 @@ import {deleteEvent} from '../redux/actions/monthActionCreators'
 import EventEdit from './EventEdit'
 
 const EventDelete = (props) => {
+    // if (props.events.length === 0 ) return null;
     // console.log(props.event)
-    console.log(props)
+    // console.log(props)
     const month_id = props.month_id
 
     const handleDelete = (event) => {
@@ -22,29 +23,32 @@ const EventDelete = (props) => {
         }
     }
 
-    // const handleEdit = (event) => {
-    //     if (props.event.username === props.username) {
-    //         props.editEvent(event.id, month_id)
-    //     }
-    // }
+    const handleEdit = (event) => {
+        // console.log(event.target.nextElementSibling)
+        if (event.target) {
+            let form = event.target.nextElementSibling
+            form.style.display = "block"
+        }
 
-    // const handleEdit = (event) => {
-    //     let form = document.getElementById("editform")
+        // let form = document.getElementById("editform")
+        // // if (props.event.username === props.username) {
+        //     form.style.display = "block"
+        //     // console.log(form)
+        // // }
+    }
 
-    //     // if (props.event.username === props.username) {
-    //         form.style.display = "block"
-    //         // console.log(form)
-    //     // }
-    // }
+    const hideEdit = (event) => {
+        if (event.target) {
+            let form = event.target.previousElementSibling
+            form.style.display = "none"
+        }
 
-    // const hideEdit = (event) => {
-    //     let form = document.getElementById("editform")
-
-    //     // if (props.event.username === props.username) {
-    //         form.style.display = "none"
-    //         // console.log(form)
-    //     // }
-    // }
+        // let form = document.getElementById("editform")
+        // if (props.event.username === props.username) {
+            // form.style.display = "none"
+            // console.log(form)
+        // }
+    }
 
     let event = props.event
 
@@ -56,20 +60,19 @@ const EventDelete = (props) => {
         <>
             {props.event.username === props.username ? <button onClick={() => handleDelete(event)}>Delete</button> : null}
             {/* {props.event.username === props.username ? <button onClick={() => handleEdit(event)}>Edit</button> : null} */}
-            {/* {props.event.username === props.username ? <button onClick={handleEdit}>Edit</button> : null} */}
-            {/* <div id="editform">
-                <EventEdit event={props} hideEdit={hideEdit}/>
-            </div> */}
+            {props.event.username === props.username ? <button onClick={handleEdit}>Edit</button> : null}
+            <div className="editform">
+                <EventEdit event={event} hideEdit={hideEdit}/>
+            </div>
 
-            {props.event.username === props.username
-            ?
-                <div id="editform">
-                    {/* <EventEdit event={event} hideEdit={hideEdit}/> */}
-                    <EventEdit event={event} />
-                </div>
-            :
-            null
-            }
+            {/* {props.event.username === props.username */}
+            {/* ? */}
+                {/* <div className="editform"> */}
+                    {/* <EventEdit event={event} /> */}
+                {/* </div> */}
+            {/* : */}
+            {/* null */}
+            {/* } */}
         </>
     )
 }

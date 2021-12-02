@@ -48,7 +48,7 @@ const EventEdit = (props) => {
                 <br></br>
                 <input type="submit" value="Submit Edited Event" />
             </form>
-            {/* <button onClick={props.hideEdit}>Close Form</button> */}
+            <button onClick={props.hideEdit}>Close Form</button>
         </div>
     )
 }
