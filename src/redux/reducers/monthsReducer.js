@@ -19,6 +19,14 @@ const nullEventForm = {
 }
 // date: "", '1997-08-24', YYYY-MM-DD
 
+const nullEventEditForm = {
+    name: "",
+    date: "",
+    location: "",
+    website: "",
+    description: ""
+}
+
 const initialMonthState = {
     months: [],
     selectedMonth: nullMonth,
@@ -28,6 +36,7 @@ const initialMonthState = {
     //     events: []
     // }
     eventForm: nullEventForm,
+    eventEditForm: nullEventEditForm,
     filterForm: {
         search: ""
     }
@@ -74,16 +83,44 @@ const monthsReducer = (state=initialMonthState, action) => {
             }
             // returning new object
             case "UNSET_EVENT":
-            return {
-                ...state,
-                // copy over all state
-                selectedMonth: {
-                    ...state.selectedMonth,
-                    // should have everythign that it already had
-                    events: [...state.selectedMonth.events.filter(event => event.id !== action.payload)]
-                    // should have everything it already had minus event
+                return {
+                    ...state,
+                    // copy over all state
+                    selectedMonth: {
+                        ...state.selectedMonth,
+                        // should have everythign that it already had
+                        events: [...state.selectedMonth.events.filter(event => event.id !== action.payload)]
+                        // should have everything it already had minus event
+                    }
                 }
-            }
+            case "EVENT_EDIT_FORM_CHANGE":
+                return {...state, eventEditForm: {
+                    ...state.eventEditForm,
+                    [action.payload.name]: action.payload.value
+                }}
+            case "EDIT_EVENT":
+                // const updatedEvent = state.selectedMonth.events.map(event => {
+                //     if (event.id === action.payload.id){
+                //         return action.payload
+                //     } else {
+                //         return event
+                //     }
+                // })
+                // return updatedEvent
+
+                const eventIndex = state.selectedMonth.events.findIndex(event => event.id === action.payload.id)
+                return {
+                    ...state,
+                    selectedMonth: {
+                        ...state.selectedMonth,
+                        events: [
+                            ...state.selectedMonth.events.slice(0, eventIndex),
+                            action.payload,
+                            ...state.selectedMonth.events.slice(eventIndex + 1)
+                        ]
+                    },
+                    eventEditForm: nullEventEditForm
+                }
         default: 
             return {...state}
     }

@@ -12,6 +12,7 @@ import {setMonths} from './redux/actions/monthActionCreators'
 // import {autoLogin} from './redux/actions/userActionCreators'
 import {autoLogin, logout} from './redux/actions/userActionCreators'
 import {Switch, Route} from 'react-router-dom'
+// import EventEdit from './components/EventEdit';
 // import {useEffect} from 'react'
 // allows to make components appear based on what route i go to
 class App extends Component {
@@ -45,6 +46,7 @@ class App extends Component {
             <Route path="/about" component={About}/>
             <Route path="/months/:id" component={MonthSelected}/>
             <Route path="/months" component={MonthsList}/>
+            {/* <Route path="/months/:id/events/:id" component={EventEdit}/> */}
           </Switch>
           </>
         :

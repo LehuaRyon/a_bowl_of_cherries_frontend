@@ -5,6 +5,7 @@ import EventDelete from './EventDelete'
 const Event = (props) => {
     // console.log(props.user)
     const {name, date, location, description, website, username} = props
+
     return (
         <div className="card">
             <h2>{name}</h2> 

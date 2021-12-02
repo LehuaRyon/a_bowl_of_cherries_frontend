@@ -11,7 +11,7 @@ class MonthSelected extends Component {
 
     componentDidMount() {
         // debugger
-        // console.log(this.props)
+        // console.log(this.props.events)
         const id = this.props.match.params.id
         // getting the id from the route, match.params are props given to me by router
         this.props.setSelectedMonth(id)

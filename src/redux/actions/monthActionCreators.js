@@ -119,6 +119,34 @@ export const submitEvent = (event) => {
     }
 }
 
+export const handleEventEditFormChange = (e) => ({
+    type: "EVENT_EDIT_FORM_CHANGE",
+    payload: {name: e.target.name, value: e.target.value}
+})
+
+export const editEvent = (event, eventId) => {
+    return dispatch => {
+        fetch(`${api_url}/${event.month_id}/events/${eventId}`, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': localStorage.token,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(event),
+        })
+        .then(resp => {
+            if (resp.ok) {
+                resp.json().then(event => dispatch({
+                    type: "EDIT_EVENT",
+                    payload: event
+                }))
+            } else {
+                resp.json().then(resp => alert(resp.errors))
+            }
+        })
+    }
+}
+
 // export const deleteEvent = (eventId) => {
 //     return dispatch => {
 //         fetch(`http://localhost:3000/api/v1/events/${eventId}`, {
