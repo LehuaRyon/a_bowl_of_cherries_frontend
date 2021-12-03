@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import { connect } from "react-redux"
 // making class component with lifecycle methods
 import Event from '../components/Event'
-import EventForm from '../components/EventForm'
+import EventAddForm from '../components/EventAddForm'
 import {setSelectedMonth, unsetSelectedMonth} from '../redux/actions/monthActionCreators'
 import Filter from "../components/Filter";
 
@@ -60,7 +60,7 @@ class MonthSelected extends Component {
                 </div>)} */}
                 <div className="eventsinfo">
                     <Filter />
-                    <EventForm month_id={id}/>
+                    <EventAddForm month_id={id}/>
                     {/* <EventForm id={id}/> */}
                     {/* {events.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)} */}
                     {searchedEvents.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}

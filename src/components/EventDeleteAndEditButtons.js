@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {deleteEvent} from '../redux/actions/monthActionCreators'
-import EventEdit from './EventEdit'
+import EventEditForm from './EventEditForm'
 
-const EventDelete = (props) => {
+const EventDeleteAndEditButtons = (props) => {
     // if (props.events.length === 0 ) return null;
     // console.log(props.event)
     // console.log(props)
@@ -62,7 +62,7 @@ const EventDelete = (props) => {
             {/* {props.event.username === props.username ? <button onClick={() => handleEdit(event)}>Edit</button> : null} */}
             {props.event.username === props.username ? <button onClick={handleEdit}>Edit</button> : null}
             <div className="editform">
-                <EventEdit event={event} hideEdit={hideEdit}/>
+                <EventEditForm event={event} hideEdit={hideEdit}/>
             </div>
 
             {/* {props.event.username === props.username */}
@@ -85,4 +85,4 @@ const mapStateToProps = (state) => ({
     month_id: state.months.selectedMonth.id
 })
 
-export default connect(mapStateToProps, {deleteEvent})(EventDelete)
+export default connect(mapStateToProps, {deleteEvent})(EventDeleteAndEditButtons)

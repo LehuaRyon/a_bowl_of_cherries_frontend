@@ -8,7 +8,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import {handleEventFormChange, submitEvent} from '../redux/actions/monthActionCreators'
 
-const EventForm = (props) => {
+const EventAddForm = (props) => {
     // console.log(props)
     // const {name, date, location, description, website} = props.form
     const {name, date, location, website, description} = props.form
@@ -66,5 +66,5 @@ const mapStateToProps = (state) => ({
     // monthId: state.months.selectedMonth.id
 })
 
-export default connect(mapStateToProps, {handleEventFormChange, submitEvent})(EventForm)
+export default connect(mapStateToProps, {handleEventFormChange, submitEvent})(EventAddForm)
 // invoking created actions from monthActionCreators
