@@ -47,6 +47,7 @@ class App extends Component {
             <Route path="/months/:id" component={MonthSelected}/>
             <Route path="/months" component={MonthsList}/>
             {/* <Route path="/months/:id/events/:id" component={EventEdit}/> */}
+            <Route path="*" component={Home} />
           </Switch>
           </>
         :

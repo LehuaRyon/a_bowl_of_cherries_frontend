@@ -30,6 +30,10 @@ const EventDeleteAndEditButtons = (props) => {
             form.style.display = "block"
         }
 
+        // if (event.target.nextElementSibling.style.display === "none") {
+        //     event.target.nextElementSibling.style.display = "block"
+        // } 
+
         // let form = document.getElementById("editform")
         // // if (props.event.username === props.username) {
         //     form.style.display = "block"
@@ -42,6 +46,10 @@ const EventDeleteAndEditButtons = (props) => {
             let form = event.target.previousElementSibling
             form.style.display = "none"
         }
+
+        // if (event.target.previousElementSibling.style.display === "block") {
+        //     event.target.previousElementSibling.style.display = "none"
+        // } 
 
         // let form = document.getElementById("editform")
         // if (props.event.username === props.username) {
@@ -86,3 +94,5 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {deleteEvent})(EventDeleteAndEditButtons)
+// putting {deleteEvent} above binds action creator with mapDispatch automatically, rather than doing mapDispatch under mapState
+// quicker implementation, less confusion
