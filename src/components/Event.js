@@ -1,9 +1,7 @@
 import React from 'react'
-// no need connecting redux, just presentation
 import EventDeleteAndEditButtons from './EventDeleteAndEditButtons'
 
 const Event = (props) => {
-    // console.log(props.user)
     const {name, date, location, description, website, username} = props
 
     return (

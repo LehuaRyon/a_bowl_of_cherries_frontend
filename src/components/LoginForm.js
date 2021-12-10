@@ -1,31 +1,24 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {toggleSignup, handleLoginFormChange, sendSignup, sendLogin} from '../redux/actions/userActionCreators'
-import {useHistory} from 'react-router-dom'
+import { toggleSignup, handleLoginFormChange, sendSignup, sendLogin } from '../redux/actions/userActionCreators'
+import { useHistory } from 'react-router-dom'
 
 const LoginForm = (props) => {
-    // console.log(props)
     const {signup, toggleSignup, form, handleLoginFormChange, sendSignup, sendLogin} = props
-    // grab form from props and set equal to variable form
     const {username, password, passwordConfirmation} = form
-    // destructure the form too so i have access
     const history = useHistory()
 
     const handleSubmit = (e) => {
         e.preventDefault()
         if (signup) {
             if (password === passwordConfirmation) {
-                // sendSignup({username: username, password: password})
                 sendSignup({username, password})
-                // give key variables name, and the value, variables value
             } else {
                 alert("Passwords do not match!")
             }
         } else {
-            // sendLogin({username: username, password: password})
             sendLogin({username, password})
         }
-        // else statement saying, if loggining in instead, run something else
         history.push("/")
     }
 
@@ -33,22 +26,16 @@ const LoginForm = (props) => {
     <>
         <h1>{signup ? "Sign Up" : "Login"}</h1>
         <form onSubmit={handleSubmit}>
-            <label>
-                Username:
-                <input type="text" name="username" value={username} onChange={handleLoginFormChange}/>
-            </label>
+            <label>Username: </label>
+            <input type="text" name="username" value={username} onChange={handleLoginFormChange}/>
             <br></br>
-            <label>
-                Password:
-                <input type="password" name="password" value={password} onChange={handleLoginFormChange}/>
-            </label>
+            <label>Password: </label>
+            <input type="password" name="password" value={password} onChange={handleLoginFormChange}/>
             <br></br>
             {signup &&
                 <>
-                    <label>
-                        Password Confirmation:
-                        <input type="password" name="passwordConfirmation" value={passwordConfirmation} onChange={handleLoginFormChange}/>
-                    </label>
+                    <label>Password Confirmation: </label>
+                    <input type="password" name="passwordConfirmation" value={passwordConfirmation} onChange={handleLoginFormChange}/>
                 </>
             }
             <br></br>
@@ -59,9 +46,6 @@ const LoginForm = (props) => {
     </>
     )
 }
-// if signup is true, sign up, if not, login shows instead
-// password confirmation only shows on if on signup
-// going to see login page no matter what route 
 
 const mapStateToProps = (state) => ({
     signup: state.user.signup,
@@ -69,8 +53,3 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(mapStateToProps, {toggleSignup, handleLoginFormChange, sendSignup, sendLogin})(LoginForm)
-
-// controlled form in redux
-// keep on object that represents form in state
-// use value of each individual input to tell it how it should look like
-//  create a change handler fo reach individual one, will update state with new information in it

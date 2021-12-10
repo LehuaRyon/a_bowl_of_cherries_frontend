@@ -4,7 +4,6 @@ const About = () => {
     return (
         <div id='home'>
         <h1 className="aboutcard">About</h1>
-        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/h9kAd8Mygpw" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="myFrame"></iframe> */}
         <div id='aboutgif'><img src='images/about.gif' alt='about gif'/></div>
         <h3>Purpose:</h3>
         <h2 className="aboutcard">
