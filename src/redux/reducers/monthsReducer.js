@@ -12,19 +12,11 @@ const nullEventForm = {
     description: ""
 }
 
-const nullEventEditForm = {
-    name: "",
-    date: "",
-    location: "",
-    website: "",
-    description: ""
-}
-
 const initialMonthState = {
     months: [],
     selectedMonth: nullMonth,
     eventForm: nullEventForm,
-    eventEditForm: nullEventEditForm,
+    eventEditForm: nullEventForm,
     filterForm: {
         search: ""
     }
@@ -38,7 +30,7 @@ const monthsReducer = (state=initialMonthState, action) => {
             return {...state, selectedMonth: action.payload}
         case "UNSET_SELECTED_MONTH":
             return {...state, selectedMonth: nullMonth}
-        case "EVENT_FORM_CHANGE":
+        case "ADD_EVENT_FORM_CHANGE":
             return {
                 ...state, 
                 eventForm: {
@@ -46,7 +38,7 @@ const monthsReducer = (state=initialMonthState, action) => {
                     [action.payload.name]: action.payload.value
                 }
             }
-        case "FILTER_FORM_CHANGE":
+        case "FILTER_EVENTS_FORM_CHANGE":
             return {
                 ...state, 
                 filterForm: {
@@ -54,7 +46,7 @@ const monthsReducer = (state=initialMonthState, action) => {
                     [action.payload.name]: action.payload.value
                 }
             }
-        case "SET_EVENT":
+        case "ADD_EVENT":
             return {
                 ...state,
                 selectedMonth: {
@@ -63,7 +55,7 @@ const monthsReducer = (state=initialMonthState, action) => {
                 },
                 eventForm: nullEventForm
             }
-            case "UNSET_EVENT":
+            case "DELETE_EVENT":
                 return {
                     ...state,
                     selectedMonth: {
@@ -71,7 +63,7 @@ const monthsReducer = (state=initialMonthState, action) => {
                         events: [...state.selectedMonth.events.filter(event => event.id !== action.payload)]
                     }
                 }
-            case "EVENT_EDIT_FORM_CHANGE":
+            case "EDIT_EVENT_FORM_CHANGE":
                 return {
                     ...state, 
                     eventEditForm: {
@@ -91,7 +83,7 @@ const monthsReducer = (state=initialMonthState, action) => {
                             ...state.selectedMonth.events.slice(eventIndex + 1)
                         ]
                     },
-                    eventEditForm: nullEventEditForm
+                    eventEditForm: nullEventForm
                 }
         default: 
             return {...state}

@@ -25,7 +25,7 @@ export const setSelectedMonth = (id) => {
 export const unsetSelectedMonth = () => ({type: "UNSET_SELECTED_MONTH"})
 
 export const handleEventFormChange = (e) => ({
-    type: "EVENT_FORM_CHANGE",
+    type: "ADD_EVENT_FORM_CHANGE",
     payload: {name: e.target.name, value: e.target.value}
 })
 
@@ -42,7 +42,7 @@ export const submitEvent = (event) => {
         .then(resp => {
             if (resp.ok) {
                 resp.json().then(event => dispatch({
-                    type: "SET_EVENT",
+                    type: "ADD_EVENT",
                     payload: event
                 }))
             } else {
@@ -53,7 +53,7 @@ export const submitEvent = (event) => {
 }
 
 export const handleEventEditFormChange = (e) => ({
-    type: "EVENT_EDIT_FORM_CHANGE",
+    type: "EDIT_EVENT_FORM_CHANGE",
     payload: {name: e.target.name, value: e.target.value}
 })
 
@@ -82,7 +82,7 @@ export const editEvent = (event, eventId) => {
 
 export const deleteEvent = (eventId, monthId) => {
     return dispatch => {
-        dispatch({type: "UNSET_EVENT", payload: eventId})
+        dispatch({type: "DELETE_EVENT", payload: eventId})
         fetch(`${api_url}/${monthId}/events/${eventId}`, {
             method: 'DELETE',
             headers: {
@@ -93,6 +93,6 @@ export const deleteEvent = (eventId, monthId) => {
 }
 
 export const handleFilterFormChange = (e) => ({
-    type: "FILTER_FORM_CHANGE",
+    type: "FILTER_EVENTS_FORM_CHANGE",
     payload: {name: e.target.name, value: e.target.value}
 })
