@@ -27,15 +27,15 @@ const LoginForm = (props) => {
         <h1>{signup ? "Sign Up" : "Login"}</h1>
         <form onSubmit={handleSubmit}>
             <label>Username: </label>
-            <input type="text" name="username" value={username} onChange={handleLoginFormChange}/>
+            <input type="text" name="username" value={username} onChange={handleLoginFormChange} placeholder="Username"/>
             <br></br>
             <label>Password: </label>
-            <input type="password" name="password" value={password} onChange={handleLoginFormChange}/>
+            <input type="password" name="password" value={password} onChange={handleLoginFormChange} placeholder="Password"/>
             <br></br>
             {signup &&
                 <>
                     <label>Password Confirmation: </label>
-                    <input type="password" name="passwordConfirmation" value={passwordConfirmation} onChange={handleLoginFormChange}/>
+                    <input type="password" name="passwordConfirmation" value={passwordConfirmation} onChange={handleLoginFormChange} placeholder="Password"/>
                 </>
             }
             <br></br>

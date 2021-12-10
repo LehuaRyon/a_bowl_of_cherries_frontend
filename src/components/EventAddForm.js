@@ -16,19 +16,19 @@ const EventAddForm = (props) => {
         <form className="new_event" onSubmit={onSubmit}>
             <h2>Add a new event!</h2>
             <label>Name: </label>
-            <input type="text" name="name" value={name} onChange={props.handleEventFormChange}/>
+            <input type="text" name="name" value={name} onChange={props.handleEventFormChange} placeholder="Name"/>
             <br></br>
             <label>Date: </label>
             <input type="date" name="date" value={date} onChange={props.handleEventFormChange}/>
             <br></br>
             <label>Location: </label>
-            <input type="text" name="location" value={location} onChange={props.handleEventFormChange}/>
+            <input type="text" name="location" value={location} onChange={props.handleEventFormChange} placeholder="Google Maps URL"/>
             <br></br>
             <label>Website: </label>
-            <input type="text" name="website" value={website} onChange={props.handleEventFormChange}/>
+            <input type="text" name="website" value={website} onChange={props.handleEventFormChange} placeholder="Event's Website URL"/>
             <br></br>
             <label>Description: </label>
-            <textarea name="description" value={description} onChange={props.handleEventFormChange}></textarea>
+            <textarea name="description" value={description} onChange={props.handleEventFormChange} placeholder="Description"></textarea>
             <br></br>
             <input type="submit" value="Submit Event" />
         </form>

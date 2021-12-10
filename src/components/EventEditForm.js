@@ -18,19 +18,19 @@ const EventEditForm = (props) => {
             <form className="edit_event" onSubmit={onSubmit}>
                 <h2>Edit this event!</h2>
                 <label>Name: </label>
-                <input type="text" name="name" value={name} onChange={props.handleEventEditFormChange}/>
+                <input type="text" name="name" value={name} onChange={props.handleEventEditFormChange} placeholder="Name"/>
                 <br></br>
                 <label>Date: </label>
                 <input type="date" name="date" value={date} onChange={props.handleEventEditFormChange}/>
                 <br></br>
                 <label>Location: </label>
-                <input type="text" name="location" value={location} onChange={props.handleEventEditFormChange}/>
+                <input type="text" name="location" value={location} onChange={props.handleEventEditFormChange} placeholder="Google Maps URL"/>
                 <br></br>
                 <label>Website: </label>
-                <input type="text" name="website" value={website} onChange={props.handleEventEditFormChange}/>
+                <input type="text" name="website" value={website} onChange={props.handleEventEditFormChange} placeholder="Event's Website URL"/>
                 <br></br>
                 <label>Description: </label>
-                <textarea name="description" value={description} onChange={props.handleEventEditFormChange}></textarea>
+                <textarea name="description" value={description} onChange={props.handleEventEditFormChange} placeholder="Description"></textarea>
                 <br></br>
                 <input type="submit" value="Submit Edited Event" />
             </form>

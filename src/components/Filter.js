@@ -6,7 +6,7 @@ const Filter = (props) => {
     return(
         <form>
             <label>Search: </label>
-            <input type="text" name="search" value={props.search} onChange={props.handleFilterFormChange}/>
+            <input type="text" name="search" value={props.search} onChange={props.handleFilterFormChange} placeholder="Name or Description"/>
         </form>
     )
 }

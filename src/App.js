@@ -33,8 +33,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
+            <Route exact path="/months" component={MonthsList}/>
             <Route path="/months/:id" component={MonthSelected}/>
-            <Route path="/months" component={MonthsList}/>
             <Route path="*" component={Home} />
           </Switch>
           </>
