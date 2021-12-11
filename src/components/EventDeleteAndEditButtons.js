@@ -14,15 +14,15 @@ const EventDeleteAndEditButtons = (props) => {
 
     const handleEdit = (event) => {
         if (event.target) {
-            let form = event.target.nextElementSibling
-            form.style.display = "block"
+            let formAndCloseButton = event.target.nextElementSibling
+            formAndCloseButton.style.display = "block"
         }
     }
 
     const hideEdit = (event) => {
         if (event.target) {
-            let form = event.target.previousElementSibling
-            form.style.display = "none"
+            let formAndCloseButton = event.target.parentElement.parentElement
+            formAndCloseButton.style.display = "none"
         }
     }
 
