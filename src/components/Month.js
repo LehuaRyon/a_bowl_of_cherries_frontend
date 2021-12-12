@@ -6,7 +6,7 @@ const Month = (props) => {
    
     return(
         <div className="card">
-            <p><Link to={"months/" + id}>{name}</Link></p>
+            <h2><Link to={"months/" + id}>{name}</Link></h2>
         </div>
     )
 }

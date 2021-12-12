@@ -27,7 +27,7 @@ class MonthSelected extends Component {
         return (
             <>
                 <button onClick={history.goBack}>Go Back</button>
-                <h1>{name} Events</h1>
+                <h1 className="monthcard">{name} Events</h1>
                 <div className="eventsinfo">
                     <Filter />
                     <EventAddForm month_id={id}/>

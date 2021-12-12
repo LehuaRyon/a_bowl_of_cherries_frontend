@@ -13,7 +13,7 @@ const EventAddForm = (props) => {
     }
   
     return (
-        <form className="new_event" onSubmit={onSubmit}>
+        <form className="newevent" onSubmit={onSubmit}>
             <h2>Add a new event!</h2>
             <label>Name: </label>
             <input type="text" name="name" value={name} onChange={props.handleEventFormChange} placeholder="Name"/>

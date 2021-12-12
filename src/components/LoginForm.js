@@ -24,7 +24,8 @@ const LoginForm = (props) => {
 
     return (
     <>
-        <h1>{signup ? "Sign Up" : "Login"}</h1>
+        {/* <h1>{signup ? "Sign Up" : "Login"}</h1> */}
+        <h1 className="logincard">{signup ? "Sign Up" : "Login"}</h1>
         <form onSubmit={handleSubmit}>
             <label>Username: </label>
             <input type="text" name="username" value={username} onChange={handleLoginFormChange} placeholder="Username"/>
