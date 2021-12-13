@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class CountButton extends Component {
+class EventCountButton extends Component {
 
     state = {
         count: 0
@@ -29,4 +29,4 @@ class CountButton extends Component {
     }
 }
 
-export default CountButton
+export default EventCountButton

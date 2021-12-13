@@ -1,6 +1,6 @@
 import React from 'react'
 import EventDeleteAndEditButtons from './EventDeleteAndEditButtons'
-import CountButton from './CountButton'
+import EventCountButton from './EventCountButton'
 
 const Event = (props) => {
     const {name, date, location, description, website, username} = props
@@ -14,7 +14,7 @@ const Event = (props) => {
             <p><a href={website}>Website</a></p>
             <p>Added By: {username}</p>
             <EventDeleteAndEditButtons event={props} />
-            <CountButton />
+            <EventCountButton />
         </div>
     )
 }
