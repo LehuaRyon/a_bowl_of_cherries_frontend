@@ -14,7 +14,6 @@ class EventCountButton extends Component {
 
     handleNo = () => {
         this.setState({
-            // count: this.state.count - 1
             count: this.state.count > 1 ? this.state.count - 1 : 0
         })
     }
