@@ -1,13 +1,16 @@
 const api_url = 'http://localhost:3000/api/v1/months'
 
 export const setMonths = () => {
+    // console.log("c")
     return dispatch => {
         fetch(api_url)
         .then(res => res.json())
-        .then(months => dispatch({
+        .then(months => {
+            // console.log("d")
+            dispatch({
             type: "SET_MONTHS",
             payload: months
-    }))
+    })})
     }
 }
 

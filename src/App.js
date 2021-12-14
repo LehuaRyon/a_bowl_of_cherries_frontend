@@ -15,7 +15,9 @@ class App extends Component {
 
   componentDidMount() {
     localStorage.token && this.props.autoLogin()
+    // console.log("a")
     this.props.setMonths()
+    // console.log("b")
   }
 
   render() {
