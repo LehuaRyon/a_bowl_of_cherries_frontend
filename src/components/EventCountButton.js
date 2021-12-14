@@ -1,20 +1,20 @@
 import React, { Component } from 'react'
 
-class EventCountButton extends Component {
+class EventAttendanceButton extends Component {
 
     state = {
-        count: 0
+        attendance: 0
     }
 
     handleYes = () => {
         this.setState({
-            count: this.state.count + 1
+            attendance: this.state.attendance + 1
         })
     }
 
     handleNo = () => {
         this.setState({
-            count: this.state.count > 1 ? this.state.count - 1 : 0
+            attendance: this.state.attendance > 1 ? this.state.attendance - 1 : 0
         })
     }
 
@@ -22,10 +22,10 @@ class EventCountButton extends Component {
         return (
             <>
                 <p>Interested in attending? <button onClick={() => this.handleYes()}>Yes</button> <button onClick={() => this.handleNo()}>No</button></p>
-                {this.state.count === 1 ? <h3>{this.state.count} Person is going!</h3> : <h3>{this.state.count} People are going!</h3>}
+                {this.state.attendance === 1 ? <h3>{this.state.attendance} Person is going!</h3> : <h3>{this.state.attendance} People are going!</h3>}
             </>
         )
     }
 }
 
-export default EventCountButton
+export default EventAttendanceButton
