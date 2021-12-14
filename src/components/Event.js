@@ -1,6 +1,6 @@
 import React from 'react'
 import EventDeleteAndEditButtons from './EventDeleteAndEditButtons'
-import EventAttendanceButton from './EventCountButton'
+import EventAttendanceButton from './EventAttendanceButton'
 
 const Event = (props) => {
     const {name, date, location, description, website, username} = props
