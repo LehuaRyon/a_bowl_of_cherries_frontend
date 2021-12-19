@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from "react-redux"
 import Event from '../components/Event'
 import EventAddForm from '../components/EventAddForm'
-import { setSelectedMonth, unsetSelectedMonth } from '../redux/actions/monthActionCreators'
+import { submitEvent, setSelectedMonth, unsetSelectedMonth } from '../redux/actions/monthActionCreators'
 import Filter from "../components/Filter";
 
 class MonthSelected extends Component {
@@ -21,13 +21,15 @@ class MonthSelected extends Component {
         this.props.unsetSelectedMonth()
     }
 
-    handleClick = () => {
-            // when clicked, use copy & sort
-            // when clicked again, use props
-        // console.log(this.props)
-            // [...this.props.events].sort((eventa, eventb) => eventa.name.localeCompare(eventb.name))
-        // console.log(this.props.events)
-            // checking if copy of events array is sorted correctly
+    // handles callback
+    addEvent = (event) => {
+        // console.log(event)
+        // this.props.submitEvent(event)
+        const {date, description, location, name, website} = event
+        const month_id = this.props.id
+        const newEvent = {name, date, location, website, description, month_id}
+        // console.log(newEvent)
+        this.props.submitEvent(newEvent)
     }
 
     render() {
@@ -48,7 +50,7 @@ class MonthSelected extends Component {
                 <div className="eventsinfo">
                     <button onClick={() => this.setState({sort: !this.state.sort})}>Click to sort alphabetically!</button><br></br><br></br>
                     <Filter />
-                    <EventAddForm month_id={id}/>
+                    <EventAddForm month_id={id} createEvent={this.addEvent}/>
                     {this.state.sort ? sortedEvents.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>) : searchedEvents.map(monthEvent => <Event key={monthEvent.id} {...monthEvent}/>)}
                 </div>
             </>
@@ -61,4 +63,4 @@ const mapStateToProps = (state) => ({
     ...state.months.filterForm
 })
 
-export default connect(mapStateToProps, {setSelectedMonth, unsetSelectedMonth})(MonthSelected)
+export default connect(mapStateToProps, {submitEvent, setSelectedMonth, unsetSelectedMonth})(MonthSelected)
