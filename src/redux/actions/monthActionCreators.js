@@ -1,4 +1,5 @@
-const api_url = 'http://localhost:3000/api/v1/months'
+// const api_url = 'http://localhost:3000/api/v1/months'
+const api_url = 'https://a-bowl-of-cherries-backend.herokuapp.com/api/v1/months'
 
 export const setMonths = () => {
     // console.log("c")
